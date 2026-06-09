@@ -193,10 +193,10 @@ with
                 else 'Payment'
             end as f_subscription_type,
             case
-                when packet_id in (4, 9, 12, 14, 56, 57) then 'Stand Alone'
+                when packet_id in (4, 9, 12, 14, 56, 57, 72) then 'Stand Alone'
                 when packet_id = 7 then 'Telecom'
-                when packet_id in (10, 16, 54, 58, 59) then 'Super App'
-                when packet_id = 52 then 'Amediateka'
+                when packet_id in (10, 16, 54, 58, 59, 66, 71, 73) then 'Super App'
+                when packet_id in (52, 61, 62)  then 'Amediateka'
                 when packet_id = 60 then 'All Line'
                 else 'Other'
             end as f_source,
@@ -216,11 +216,27 @@ with
         FROM
             spark_bsns_vlt.msp_ref_subscriptions
         where
-            packet_id not in (1, 2, 3, 5, 6, 8, 11, 13, 15, 17, 18, 19, 53)
-            and provider_id not in (2, 3, 5, 6, 7)
+            packet_id not in (1, 2, 3, 5, 6, 8, 11, 13, 15, 17, 18, 19, 53, 55, 63, 64, 65, 67, 68, 69, 70)
+            and provider_id not in (2, 3, 5, 6, 7, 44, 42, 45)
             and end_date::date - start_date::date != 0
+            and user_id not in 
+                (
+                    select distinct user_id
+                    from spark_bsns_vlt.msp_ref_users
+                    where
+                        user_role = 'test'
+                        or provider_name in (
+                            'Freedom Telecom (test)',
+                            'Сертификация приложений',
+                            'Провайдер для тестов',
+                            'Тест Setanta + Netflix',
+                            'Закрытые показы',
+                            '140 ball',
+                            'Fmedia',
+                            'Коммерческая витрина'
+                        ))
     ),
-    first_sub_info as (
+    first_sub as (
         select
             phone,
             user_id,
@@ -241,6 +257,64 @@ with
         where
             sub_num = 1
     ),
+    promokeys_raw as (
+    select
+        p.user_id,
+        p.promo_title,
+        p.marketing,
+        (p.activated_at - interval '1 hours')::date as dt,
+        p.activated_at,
+        row_number() over (
+            partition by 
+                p.user_id,
+                (p.activated_at - interval '1 hours')::date
+            order by 
+                p.activated_at
+        ) as rn
+    from spark_bsns_vlt.msp_promo_fer_act p
+    join first_sub f
+        on f.user_id = p.user_id
+       and f.first_sub_dt = (p.activated_at - interval '1 hours')::date
+    where coalesce(lower(p.promo_title), '') not like '%test%'
+      and coalesce(lower(p.promo_title), '') not like '%тест%'
+      and not exists (
+          select 1
+          from spark_bsns_vlt.msp_ref_users u
+          where u.user_id = p.user_id
+            and (
+                u.user_role = 'test'
+                or u.provider_name in (
+                    'Freedom Telecom (test)',
+                    'Сертификация приложений',
+                    'Провайдер для тестов',
+                    'Тест Setanta + Netflix',
+                    'Закрытые показы',
+                    '140 ball',
+                    'Fmedia',
+                    'Коммерческая витрина'
+                )
+            )
+      )
+    ),
+    promokeys as (
+        select
+            user_id,
+            promo_title,
+            marketing,
+            dt
+        from promokeys_raw
+        where rn = 1
+    ),
+    first_sub_info as (
+        select
+            f.*,
+            p.promo_title,
+            p.marketing
+        from first_sub f
+        left join promokeys p 
+            on f.user_id = p.user_id
+        and f.first_sub_dt = p.dt
+    ),
     registrations as (
         select
             user_id,
@@ -260,17 +334,20 @@ with
             user_role != 'test'
             and provider_name is not Null
             and provider_name not in (
-                'Freedom Telecom (test)',
-                'Сертификация приложений',
-                'Провайдер для тестов',
-                'Тест Setanta + Netflix',
-                'Закрытые показы'
-            )
+                            'Freedom Telecom (test)',
+                            'Сертификация приложений',
+                            'Провайдер для тестов',
+                            'Тест Setanta + Netflix',
+                            'Закрытые показы',
+                            '140 ball',
+                            'Fmedia',
+                            'Коммерческая витрина'
+                            )
     ),
     reg_with_first_sub as (
         SELECT
             coalesce(u.user_id, sb.user_id) as user_id,
-            u.registration_dt,
+            coalesce(u.registration_dt, sb.register_date) as registration_dt,
             coalesce(u.registration_dt, sb.register_date)::date as reg_date,
             coalesce(u.phone, sb.phone) as phone,
             u.provider_name as registration_provider,
@@ -299,7 +376,9 @@ with
             sb.f_packet,
             sb.f_packet_id,
             sb.f_provider,
-            sb.f_provider_id
+            sb.f_provider_id,
+            sb.promo_title, 
+            sb.marketing
         FROM
             registrations u
             full join first_sub_info sb on u.user_id = sb.user_id
