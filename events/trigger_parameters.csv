@@ -1,0 +1,28 @@
+﻿triggerId;trigger_name;trigger_type;parameter_key;parameter_value;parameter_type
+170;show_promo_cover;ELEMENT_VISIBILITY;elementSelector;.promo-bg_title;TEMPLATE
+170;show_promo_cover;ELEMENT_VISIBILITY;firingFrequency;MANY_PER_ELEMENT;TEMPLATE
+170;show_promo_cover;ELEMENT_VISIBILITY;onScreenRatio;50;TEMPLATE
+170;show_promo_cover;ELEMENT_VISIBILITY;selectorType;CSS;TEMPLATE
+170;show_promo_cover;ELEMENT_VISIBILITY;useDomChangeListener;true;BOOLEAN
+170;show_promo_cover;ELEMENT_VISIBILITY;useOnScreenDuration;false;BOOLEAN
+175;show_media_cover;ELEMENT_VISIBILITY;elementSelector;.items_slide.t_content-v;TEMPLATE
+175;show_media_cover;ELEMENT_VISIBILITY;firingFrequency;ONCE_PER_ELEMENT;TEMPLATE
+175;show_media_cover;ELEMENT_VISIBILITY;onScreenDuration;1000;TEMPLATE
+175;show_media_cover;ELEMENT_VISIBILITY;onScreenRatio;100;TEMPLATE
+175;show_media_cover;ELEMENT_VISIBILITY;selectorType;CSS;TEMPLATE
+175;show_media_cover;ELEMENT_VISIBILITY;useDomChangeListener;true;BOOLEAN
+175;show_media_cover;ELEMENT_VISIBILITY;useOnScreenDuration;true;BOOLEAN
+259;show_promo_cover mobile;ELEMENT_VISIBILITY;elementSelector;.promo-wide_block.show_title;TEMPLATE
+259;show_promo_cover mobile;ELEMENT_VISIBILITY;firingFrequency;MANY_PER_ELEMENT;TEMPLATE
+259;show_promo_cover mobile;ELEMENT_VISIBILITY;onScreenDuration;1000;TEMPLATE
+259;show_promo_cover mobile;ELEMENT_VISIBILITY;onScreenRatio;50;TEMPLATE
+259;show_promo_cover mobile;ELEMENT_VISIBILITY;selectorType;CSS;TEMPLATE
+259;show_promo_cover mobile;ELEMENT_VISIBILITY;useDomChangeListener;true;BOOLEAN
+259;show_promo_cover mobile;ELEMENT_VISIBILITY;useOnScreenDuration;true;BOOLEAN
+323;show_media_cover big;ELEMENT_VISIBILITY;elementSelector;.items_slide.t_collection-v;TEMPLATE
+323;show_media_cover big;ELEMENT_VISIBILITY;firingFrequency;ONCE_PER_ELEMENT;TEMPLATE
+323;show_media_cover big;ELEMENT_VISIBILITY;onScreenDuration;1000;TEMPLATE
+323;show_media_cover big;ELEMENT_VISIBILITY;onScreenRatio;100;TEMPLATE
+323;show_media_cover big;ELEMENT_VISIBILITY;selectorType;CSS;TEMPLATE
+323;show_media_cover big;ELEMENT_VISIBILITY;useDomChangeListener;true;BOOLEAN
+323;show_media_cover big;ELEMENT_VISIBILITY;useOnScreenDuration;true;BOOLEAN

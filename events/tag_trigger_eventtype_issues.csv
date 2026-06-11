@@ -1,0 +1,18 @@
+﻿tagId;tagName;issue_type;eventType_raw_repr;eventType_clean;eventType_source
+7;Тег Google;eventType_not_detected_or_not_event_tag;;;googtag/global
+9;YM;eventType_not_detected_or_not_event_tag;;;
+12;Amplitude;eventType_not_detected_or_not_event_tag;;;amplitude/eventProperties
+150;Am - Session Replay;eventType_not_detected_or_not_event_tag;;;
+220;GA - user_id;eventType_not_detected_or_not_event_tag;;;
+221;AM - user_id;eventType_not_detected_or_not_event_tag;;;amplitude/eventProperties
+223;YM - user_id;eventType_not_detected_or_not_event_tag;;;
+275;Mx - user_id;eventType_not_detected_or_not_event_tag;;;mixpanel/trackParameters
+290;AM - lang;eventType_not_detected_or_not_event_tag;;;amplitude/eventProperties
+300;growthbook;eventType_not_detected_or_not_event_tag;;;
+306;TikTok;eventType_not_detected_or_not_event_tag;;;
+319;AM - profile_type;eventType_not_detected_or_not_event_tag;;;amplitude/eventProperties
+340;SA - set cookie;eventType_not_detected_or_not_event_tag;;;
+385;AM - auth;eventType_not_detected_or_not_event_tag;;;amplitude/eventProperties
+390;AM - pid;eventType_not_detected_or_not_event_tag;;;amplitude/eventProperties
+391;packets_list;eventType_not_detected_or_not_event_tag;;;
+394;AM - packets;eventType_not_detected_or_not_event_tag;;;amplitude/eventProperties

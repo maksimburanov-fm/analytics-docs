@@ -1,0 +1,625 @@
+﻿accountId;containerId;tagId;name;eventType;parameter;parameterValue
+6229299828;184219294;26;GA - view_channel_content;view_channel_content;channel;{{channelTitle}}
+6229299828;184219294;26;GA - view_channel_content;view_channel_content;is_logged;{{authType}}
+6229299828;184219294;26;GA - view_channel_content;view_channel_content;title;{{VideoTitle2}}
+6229299828;184219294;31;GA - home_page;home_page;is_logged;{{authType}}
+6229299828;184219294;31;GA - home_page;home_page;profile_type;{{profile_type}}
+6229299828;184219294;32;Am - home_page;home_page;is_logged;{{authType}}
+6229299828;184219294;32;Am - home_page;home_page;is_sa;{{is_sa}}
+6229299828;184219294;32;Am - home_page;home_page;profile_type;{{profile_type}}
+6229299828;184219294;36;Am - view_channel_content;view_channel_content;channel;{{channelTitle}}
+6229299828;184219294;36;Am - view_channel_content;view_channel_content;is_logged;{{authType}}
+6229299828;184219294;36;Am - view_channel_content;view_channel_content;title;{{VideoTitle2}}
+6229299828;184219294;42;GA - auth_success;auth_success;channel;{{channelTitle}}
+6229299828;184219294;42;GA - auth_success;auth_success;title;{{VideoTitle2}}
+6229299828;184219294;43;Am - auth_success;auth_success;channel;{{channelTitle}}
+6229299828;184219294;43;Am - auth_success;auth_success;title;{{VideoTitle2}}
+6229299828;184219294;43;Am - auth_success;auth_success;url;{{Page URL}}
+6229299828;184219294;45;GA - auth_screen_phone;auth_screen_phone;channel;{{channelTitle}}
+6229299828;184219294;45;GA - auth_screen_phone;auth_screen_phone;title;{{VideoTitle2}}
+6229299828;184219294;46;Mx - auth_screen_phone;auth_screen_phone;channel;{{channelTitle}}
+6229299828;184219294;46;Mx - auth_screen_phone;auth_screen_phone;title;{{VideoTitle2}}
+6229299828;184219294;46;Mx - auth_screen_phone;auth_screen_phone;url;{{Page URL}}
+6229299828;184219294;49;GA - video_start;video_start;channel;{{channelTitle}}
+6229299828;184219294;49;GA - video_start;video_start;is_logged;{{authType}}
+6229299828;184219294;49;GA - video_start;video_start;title;{{VideoTitle2}}
+6229299828;184219294;51;Am - video_start;video_start;channel;{{channelTitle}}
+6229299828;184219294;51;Am - video_start;video_start;is_logged;{{authType}}
+6229299828;184219294;51;Am - video_start;video_start;title;{{VideoTitle2}}
+6229299828;184219294;52;Am - video_start_error;video_start_error;channel;{{channelTitle}}
+6229299828;184219294;52;Am - video_start_error;video_start_error;is_logged;{{authType}}
+6229299828;184219294;52;Am - video_start_error;video_start_error;title;{{VideoTitle2}}
+6229299828;184219294;54;GA - video_start_error;video_start_error;channel;{{channelTitle}}
+6229299828;184219294;54;GA - video_start_error;video_start_error;is_logged;{{authType}}
+6229299828;184219294;54;GA - video_start_error;video_start_error;title;{{VideoTitle2}}
+6229299828;184219294;61;Am - auth_phone_next;auth_phone_next;channel;{{channelTitle}}
+6229299828;184219294;61;Am - auth_phone_next;auth_phone_next;title;{{VideoTitle2}}
+6229299828;184219294;61;Am - auth_phone_next;auth_phone_next;url;{{Page URL}}
+6229299828;184219294;62;GA - auth_phone_next;auth_phone_next;channel;{{channelTitle}}
+6229299828;184219294;62;GA - auth_phone_next;auth_phone_next;title;{{VideoTitle2}}
+6229299828;184219294;64;Am - auth_sms_next;auth_sms_next;channel;{{channelTitle}}
+6229299828;184219294;64;Am - auth_sms_next;auth_sms_next;title;{{VideoTitle2}}
+6229299828;184219294;64;Am - auth_sms_next;auth_sms_next;url;{{Page URL}}
+6229299828;184219294;65;GA - auth_sms_next;auth_sms_next;channel;{{channelTitle}}
+6229299828;184219294;65;GA - auth_sms_next;auth_sms_next;title;{{VideoTitle2}}
+6229299828;184219294;72;Am - view_content_description;view_content_description;is_logged;{{authType}}
+6229299828;184219294;72;Am - view_content_description;view_content_description;title;{{VideoTitle2}}
+6229299828;184219294;72;Am - view_content_description;view_content_description;type;{{button_start_watch}}
+6229299828;184219294;73;GA - view_content_description;view_content_description;is_logged;{{authType}}
+6229299828;184219294;73;GA - view_content_description;view_content_description;title;{{VideoTitle2}}
+6229299828;184219294;73;GA - view_content_description;view_content_description;type;{{button_start_watch}}
+6229299828;184219294;76;Am - view_channels;view_channels;is_logged;{{authType}}
+6229299828;184219294;78;GA - view_channels;view_channels;is_logged;{{authType}}
+6229299828;184219294;82;Am - view_movies;view_movies;is_logged;{{authType}}
+6229299828;184219294;84;GA - view_movies;view_movies;is_logged;{{authType}}
+6229299828;184219294;88;Am - view_series;view_series;is_logged;{{authType}}
+6229299828;184219294;90;GA - view_series;view_series;is_logged;{{authType}}
+6229299828;184219294;96;Am - view_kid;view_kid;is_logged;{{authType}}
+6229299828;184219294;99;GA - view_kid;view_kid;is_logged;{{authType}}
+6229299828;184219294;100;Am - search_results;search_results;count;{{results_count}}
+6229299828;184219294;100;Am - search_results;search_results;is_logged;{{authType}}
+6229299828;184219294;100;Am - search_results;search_results;query;{{SearchQuery}}
+6229299828;184219294;102;GA - search_results;search_results;count;{{results_count}}
+6229299828;184219294;102;GA - search_results;search_results;is_logged;{{authType}}
+6229299828;184219294;102;GA - search_results;search_results;query;{{SearchQuery}}
+6229299828;184219294;113;Am - view_videopage_vod;view_videopage_vod;channel;{{channelTitle}}
+6229299828;184219294;113;Am - view_videopage_vod;view_videopage_vod;is_logged;{{authType}}
+6229299828;184219294;113;Am - view_videopage_vod;view_videopage_vod;title;{{VideoTitle2}}
+6229299828;184219294;115;GA - view_videopage_vod;view_videopage_vod;channel;{{channelTitle}}
+6229299828;184219294;115;GA - view_videopage_vod;view_videopage_vod;is_logged;{{authType}}
+6229299828;184219294;115;GA - view_videopage_vod;view_videopage_vod;title;{{VideoTitle2}}
+6229299828;184219294;119;Am - view_sport;view_sport;is_logged;{{authType}}
+6229299828;184219294;121;GA - view_sport;view_sport;is_logged;{{authType}}
+6229299828;184219294;125;GA - view_favorites;view_favorites;is_logged;{{authType}}
+6229299828;184219294;127;Am - view_favorites;view_favorites;is_logged;{{authType}}
+6229299828;184219294;133;Am - view_recommendations;view_recommendations;is_logged;{{authType}}
+6229299828;184219294;133;Am - view_recommendations;view_recommendations;title;{{collection_title}}
+6229299828;184219294;134;GA - view_recommendations;view_recommendations;is_logged;{{authType}}
+6229299828;184219294;134;GA - view_recommendations;view_recommendations;title;{{collection_title}}
+6229299828;184219294;136;Am - click_download_app;click_download_app;is_logged;{{authType}}
+6229299828;184219294;136;Am - click_download_app;click_download_app;url;{{Page URL}}
+6229299828;184219294;137;GA - click_download_app;click_download_app;is_logged;{{authType}}
+6229299828;184219294;139;Am - view_subscription_popup;view_subscription_popup;channel;{{channelTitle}}
+6229299828;184219294;139;Am - view_subscription_popup;view_subscription_popup;is_logged;{{authType}}
+6229299828;184219294;139;Am - view_subscription_popup;view_subscription_popup;title;{{VideoTitle2}}
+6229299828;184219294;139;Am - view_subscription_popup;view_subscription_popup;url;{{Page URL}}
+6229299828;184219294;140;GA - view_subscription_popup;view_subscription_popup;channel;{{channelTitle}}
+6229299828;184219294;140;GA - view_subscription_popup;view_subscription_popup;is_logged;{{authType}}
+6229299828;184219294;140;GA - view_subscription_popup;view_subscription_popup;title;{{VideoTitle2}}
+6229299828;184219294;142;Am - view_payment_popup - card;view_payment_popup;channel;{{channelTitle}}
+6229299828;184219294;142;Am - view_payment_popup - card;view_payment_popup;title;{{VideoTitle2}}
+6229299828;184219294;142;Am - view_payment_popup - card;view_payment_popup;type;old_card
+6229299828;184219294;142;Am - view_payment_popup - card;view_payment_popup;url;{{Page URL}}
+6229299828;184219294;143;GA - view_payment_popup - card;view_payment_popup;channel;{{channelTitle}}
+6229299828;184219294;143;GA - view_payment_popup - card;view_payment_popup;title;{{VideoTitle2}}
+6229299828;184219294;143;GA - view_payment_popup - card;view_payment_popup;type;old_card
+6229299828;184219294;145;Am - payment_success;payment_success;channel;{{channelTitle}}
+6229299828;184219294;145;Am - payment_success;payment_success;title;{{VideoTitle2}}
+6229299828;184219294;145;Am - payment_success;payment_success;url;{{Page URL}}
+6229299828;184219294;146;GA - payment_success;payment_success;channel;{{channelTitle}}
+6229299828;184219294;146;GA - payment_success;payment_success;title;{{VideoTitle2}}
+6229299828;184219294;148;Am - view_payment_popup - redirect;view_payment_popup;channel;{{channelTitle}}
+6229299828;184219294;148;Am - view_payment_popup - redirect;view_payment_popup;title;{{VideoTitle2}}
+6229299828;184219294;148;Am - view_payment_popup - redirect;view_payment_popup;type;new_card
+6229299828;184219294;148;Am - view_payment_popup - redirect;view_payment_popup;url;{{Page URL}}
+6229299828;184219294;149;GA - view_payment_popup - redirect;view_payment_popup;channel;{{channelTitle}}
+6229299828;184219294;149;GA - view_payment_popup - redirect;view_payment_popup;title;{{VideoTitle2}}
+6229299828;184219294;149;GA - view_payment_popup - redirect;view_payment_popup;type;new_card
+6229299828;184219294;153;Am - promocode_page;promocode_page;is_logged;{{authType}}
+6229299828;184219294;154;GA - promocode_page;promocode_page;is_logged;{{authType}}
+6229299828;184219294;156;Am - promocode_activate;promocode_activate;is_logged;{{authType}}
+6229299828;184219294;156;Am - promocode_activate;promocode_activate;promocode;{{promocode}}
+6229299828;184219294;157;GA - promocode_activate;promocode_activate;is_logged;{{authType}}
+6229299828;184219294;157;GA - promocode_activate;promocode_activate;promocode;{{promocode}}
+6229299828;184219294;165;Am - promocode_success_next;promocode_success_next;is_logged;{{authType}}
+6229299828;184219294;166;GA - promocode_success_next;promocode_success_next;is_logged;{{authType}}
+6229299828;184219294;167;GA - promocode_check_card_next;promocode_check_card_next;is_logged;{{authType}}
+6229299828;184219294;168;Am - promocode_check_card_next;promocode_check_card_next;is_logged;{{authType}}
+6229299828;184219294;180;Am - media_cover_click;media_cover_click;content_id;{{content_id}}
+6229299828;184219294;180;Am - media_cover_click;media_cover_click;count;{{element_index}}
+6229299828;184219294;180;Am - media_cover_click;media_cover_click;is_logged;{{authType}}
+6229299828;184219294;180;Am - media_cover_click;media_cover_click;path;{{Page Path}}
+6229299828;184219294;180;Am - media_cover_click;media_cover_click;row_id;{{row_id}}
+6229299828;184219294;180;Am - media_cover_click;media_cover_click;subhead;{{subhead_title_click}}
+6229299828;184219294;180;Am - media_cover_click;media_cover_click;title;{{title_alt}}
+6229299828;184219294;180;Am - media_cover_click;media_cover_click;type;{{item_type}}
+6229299828;184219294;181;GA - media_cover_click;media_cover_click;content_id;{{content_id}}
+6229299828;184219294;181;GA - media_cover_click;media_cover_click;is_logged;{{authType}}
+6229299828;184219294;181;GA - media_cover_click;media_cover_click;subhead;{{subhead_title_click}}
+6229299828;184219294;181;GA - media_cover_click;media_cover_click;title;{{title_alt}}
+6229299828;184219294;185;Am - promo_click;promo_click;click_text;{{Click Text}}
+6229299828;184219294;185;Am - promo_click;promo_click;count;{{element_index}}
+6229299828;184219294;185;Am - promo_click;promo_click;is_logged;{{authType}}
+6229299828;184219294;185;Am - promo_click;promo_click;profile_type;{{profile_type}}
+6229299828;184219294;185;Am - promo_click;promo_click;title;{{promo_title}}
+6229299828;184219294;186;GA - promo_click;promo_click;click_text;{{Click Text}}
+6229299828;184219294;186;GA - promo_click;promo_click;is_logged;{{authType}}
+6229299828;184219294;186;GA - promo_click;promo_click;profile_type;{{profile_type}}
+6229299828;184219294;186;GA - promo_click;promo_click;title;{{promo_title}}
+6229299828;184219294;208;YM - view_content_description;view_content_description;is_logged;{{authType}}
+6229299828;184219294;208;YM - view_content_description;view_content_description;title;{{VideoTitle2}}
+6229299828;184219294;208;YM - view_content_description;view_content_description;type;{{button_start_watch}}
+6229299828;184219294;208;YM - view_content_description;view_content_description;uid;{{union}}
+6229299828;184219294;208;YM - view_content_description;view_content_description;{ym_id}},'reachGoal','view_content_description',{event_name;view_content_description
+6229299828;184219294;229;YM - auth_phone_next;auth_phone_next;channel;{{channelTitle}}
+6229299828;184219294;229;YM - auth_phone_next;auth_phone_next;title;{{VideoTitle2}}
+6229299828;184219294;229;YM - auth_phone_next;auth_phone_next;uid;{{union}}
+6229299828;184219294;229;YM - auth_phone_next;auth_phone_next;url;{{Page URL}}
+6229299828;184219294;229;YM - auth_phone_next;auth_phone_next;{ym_id}},'reachGoal','auth_phone_next',{event_name;auth_phone_next
+6229299828;184219294;230;YM - auth_screen_phone;auth_screen_phone;channel;{{channelTitle}}
+6229299828;184219294;230;YM - auth_screen_phone;auth_screen_phone;title;{{VideoTitle2}}
+6229299828;184219294;230;YM - auth_screen_phone;auth_screen_phone;uid;{{union}}
+6229299828;184219294;230;YM - auth_screen_phone;auth_screen_phone;url;{{Page URL}}
+6229299828;184219294;230;YM - auth_screen_phone;auth_screen_phone;{ym_id}},'reachGoal','auth_screen_phone',{event_name;auth_screen_phone
+6229299828;184219294;231;YM - auth_sms_next;auth_sms_next;channel;{{channelTitle}}
+6229299828;184219294;231;YM - auth_sms_next;auth_sms_next;title;{{VideoTitle2}}
+6229299828;184219294;231;YM - auth_sms_next;auth_sms_next;uid;{{union}}
+6229299828;184219294;231;YM - auth_sms_next;auth_sms_next;url;{{Page URL}}
+6229299828;184219294;231;YM - auth_sms_next;auth_sms_next;{ym_id}},'reachGoal','auth_sms_next',{event_name;auth_sms_next
+6229299828;184219294;232;YM - auth_success;auth_success;channel;{{channelTitle}}
+6229299828;184219294;232;YM - auth_success;auth_success;title;{{VideoTitle2}}
+6229299828;184219294;232;YM - auth_success;auth_success;uid;{{union}}
+6229299828;184219294;232;YM - auth_success;auth_success;url;{{Page URL}}
+6229299828;184219294;232;YM - auth_success;auth_success;{ym_id}},'reachGoal','auth_success',{event_name;auth_success
+6229299828;184219294;233;YM - click_download_app;click_download_app;is_logged;{{authType}}
+6229299828;184219294;233;YM - click_download_app;click_download_app;uid;{{union}}
+6229299828;184219294;233;YM - click_download_app;click_download_app;url;{{Page URL}}
+6229299828;184219294;233;YM - click_download_app;click_download_app;{ym_id}},'reachGoal','click_download_app',{event_name;click_download_app
+6229299828;184219294;234;YM - confirm_button;confirm_button;uid;{{union}}
+6229299828;184219294;234;YM - confirm_button;confirm_button;{ym_id}},'reachGoal','confirm_button',{event_name;confirm_button
+6229299828;184219294;235;YM - delete_card;delete_card;uid;{{union}}
+6229299828;184219294;235;YM - delete_card;delete_card;{ym_id}},'reachGoal','delete_card',{event_name;delete_card
+6229299828;184219294;236;YM - home_page;home_page;is_logged;{{authType}}
+6229299828;184219294;236;YM - home_page;home_page;profile_type;{{profile_type}}
+6229299828;184219294;236;YM - home_page;home_page;uid;{{union}}
+6229299828;184219294;236;YM - home_page;home_page;{ym_id}},'reachGoal','home_page',{event_name;home_page
+6229299828;184219294;237;YM - media_cover_click;media_cover_click;content_id;{{content_id}}
+6229299828;184219294;237;YM - media_cover_click;media_cover_click;is_logged;{{authType}}
+6229299828;184219294;237;YM - media_cover_click;media_cover_click;subhead;{{subhead_title_click}}
+6229299828;184219294;237;YM - media_cover_click;media_cover_click;title;{{title_alt}}
+6229299828;184219294;237;YM - media_cover_click;media_cover_click;uid;{{union}}
+6229299828;184219294;237;YM - media_cover_click;media_cover_click;{ym_id}},'reachGoal','media_cover_click',{event_name;media_cover_click
+6229299828;184219294;238;YM - payment_success;payment_success;channel;{{channelTitle}}
+6229299828;184219294;238;YM - payment_success;payment_success;title;{{VideoTitle2}}
+6229299828;184219294;238;YM - payment_success;payment_success;uid;{{union}}
+6229299828;184219294;238;YM - payment_success;payment_success;url;{{Page URL}}
+6229299828;184219294;238;YM - payment_success;payment_success;{ym_id}},'reachGoal','payment_success',{event_name;payment_success
+6229299828;184219294;239;YM - promo_click;promo_click;click_text;{{Click Text}}
+6229299828;184219294;239;YM - promo_click;promo_click;is_logged;{{authType}}
+6229299828;184219294;239;YM - promo_click;promo_click;profile_type;{{profile_type}}
+6229299828;184219294;239;YM - promo_click;promo_click;title;{{promo_title}}
+6229299828;184219294;239;YM - promo_click;promo_click;uid;{{union}}
+6229299828;184219294;239;YM - promo_click;promo_click;{ym_id}},'reachGoal','promo_click',{event_name;promo_click
+6229299828;184219294;240;YM - promocode_activate;promocode_activate;is_logged;{{authType}}
+6229299828;184219294;240;YM - promocode_activate;promocode_activate;promocode;{{promocode}}
+6229299828;184219294;240;YM - promocode_activate;promocode_activate;uid;{{union}}
+6229299828;184219294;240;YM - promocode_activate;promocode_activate;{ym_id}},'reachGoal','promocode_activate',{event_name;promocode_activate
+6229299828;184219294;241;YM - promocode_check_card_next;promocode_check_card_next;is_logged;{{authType}}
+6229299828;184219294;241;YM - promocode_check_card_next;promocode_check_card_next;uid;{{union}}
+6229299828;184219294;241;YM - promocode_check_card_next;promocode_check_card_next;{ym_id}},'reachGoal','promocode_check_card_next',{event_name;promocode_check_card_next
+6229299828;184219294;242;YM - promocode_page;promocode_page;is_logged;{{authType}}
+6229299828;184219294;242;YM - promocode_page;promocode_page;uid;{{union}}
+6229299828;184219294;242;YM - promocode_page;promocode_page;{ym_id}},'reachGoal','promocode_page',{event_name;promocode_page
+6229299828;184219294;243;YM - promocode_success_next;promocode_success_next;is_logged;{{authType}}
+6229299828;184219294;243;YM - promocode_success_next;promocode_success_next;uid;{{union}}
+6229299828;184219294;243;YM - promocode_success_next;promocode_success_next;{ym_id}},'reachGoal','promocode_success_next',{event_name;promocode_success_next
+6229299828;184219294;244;YM - search_results;search_results;count;{{results_count}}
+6229299828;184219294;244;YM - search_results;search_results;is_logged;{{authType}}
+6229299828;184219294;244;YM - search_results;search_results;query;{{SearchQuery}}
+6229299828;184219294;244;YM - search_results;search_results;uid;{{union}}
+6229299828;184219294;244;YM - search_results;search_results;{ym_id}},'reachGoal','search_results',{event_name;search_results
+6229299828;184219294;247;YM - video_start;video_start;channel;{{channelTitle}}
+6229299828;184219294;247;YM - video_start;video_start;is_logged;{{authType}}
+6229299828;184219294;247;YM - video_start;video_start;title;{{VideoTitle2}}
+6229299828;184219294;247;YM - video_start;video_start;uid;{{union}}
+6229299828;184219294;247;YM - video_start;video_start;{ym_id}},'reachGoal','video_start',{event_name;video_start
+6229299828;184219294;248;YM - view_channel_content;view_channel_content;channel;{{channelTitle}}
+6229299828;184219294;248;YM - view_channel_content;view_channel_content;is_logged;{{authType}}
+6229299828;184219294;248;YM - view_channel_content;view_channel_content;title;{{VideoTitle2}}
+6229299828;184219294;248;YM - view_channel_content;view_channel_content;uid;{{union}}
+6229299828;184219294;248;YM - view_channel_content;view_channel_content;{ym_id}},'reachGoal','view_channel_content',{event_name;view_channel_content
+6229299828;184219294;249;YM - view_channels;view_channels;is_logged;{{authType}}
+6229299828;184219294;249;YM - view_channels;view_channels;uid;{{union}}
+6229299828;184219294;249;YM - view_channels;view_channels;{ym_id}},'reachGoal','view_channels',{event_name;view_channels
+6229299828;184219294;250;YM - view_favorites;view_favorites;is_logged;{{authType}}
+6229299828;184219294;250;YM - view_favorites;view_favorites;uid;{{union}}
+6229299828;184219294;250;YM - view_favorites;view_favorites;{ym_id}},'reachGoal','view_favorites',{event_name;view_favorites
+6229299828;184219294;251;YM - view_kid;view_kid;is_logged;{{authType}}
+6229299828;184219294;251;YM - view_kid;view_kid;uid;{{union}}
+6229299828;184219294;251;YM - view_kid;view_kid;{ym_id}},'reachGoal','view_kid',{event_name;view_kid
+6229299828;184219294;252;YM - view_payment_popup - card;view_payment_popup;channel;{{channelTitle}}
+6229299828;184219294;252;YM - view_payment_popup - card;view_payment_popup;title;{{VideoTitle2}}
+6229299828;184219294;252;YM - view_payment_popup - card;view_payment_popup;type;old_card
+6229299828;184219294;252;YM - view_payment_popup - card;view_payment_popup;uid;{{union}}
+6229299828;184219294;252;YM - view_payment_popup - card;view_payment_popup;url;{{Page URL}}
+6229299828;184219294;252;YM - view_payment_popup - card;view_payment_popup;{ym_id}},'reachGoal','view_payment_popup',{event_name;view_payment_popup
+6229299828;184219294;253;YM - view_payment_popup - redirect;view_payment_popup;channel;{{channelTitle}}
+6229299828;184219294;253;YM - view_payment_popup - redirect;view_payment_popup;title;{{VideoTitle2}}
+6229299828;184219294;253;YM - view_payment_popup - redirect;view_payment_popup;type;new_card
+6229299828;184219294;253;YM - view_payment_popup - redirect;view_payment_popup;uid;{{union}}
+6229299828;184219294;253;YM - view_payment_popup - redirect;view_payment_popup;url;{{Page URL}}
+6229299828;184219294;253;YM - view_payment_popup - redirect;view_payment_popup;{ym_id}},'reachGoal','view_payment_popup',{event_name;view_payment_popup
+6229299828;184219294;254;YM - view_recommendations;view_recommendations;is_logged;{{authType}}
+6229299828;184219294;254;YM - view_recommendations;view_recommendations;title;{{collection_title}}
+6229299828;184219294;254;YM - view_recommendations;view_recommendations;uid;{{union}}
+6229299828;184219294;254;YM - view_recommendations;view_recommendations;{ym_id}},'reachGoal','view_recommendations',{event_name;view_recommendations
+6229299828;184219294;255;YM - view_series;view_series;is_logged;{{authType}}
+6229299828;184219294;255;YM - view_series;view_series;uid;{{union}}
+6229299828;184219294;255;YM - view_series;view_series;{ym_id}},'reachGoal','view_series',{event_name;view_series
+6229299828;184219294;256;YM - view_sport;view_sport;is_logged;{{authType}}
+6229299828;184219294;256;YM - view_sport;view_sport;uid;{{union}}
+6229299828;184219294;256;YM - view_sport;view_sport;{ym_id}},'reachGoal','view_sport',{event_name;view_sport
+6229299828;184219294;257;YM - view_videopage_vod;view_videopage_vod;channel;{{channelTitle}}
+6229299828;184219294;257;YM - view_videopage_vod;view_videopage_vod;is_logged;{{authType}}
+6229299828;184219294;257;YM - view_videopage_vod;view_videopage_vod;title;{{VideoTitle2}}
+6229299828;184219294;257;YM - view_videopage_vod;view_videopage_vod;uid;{{union}}
+6229299828;184219294;257;YM - view_videopage_vod;view_videopage_vod;{ym_id}},'reachGoal','view_videopage_vod',{event_name;view_videopage_vod
+6229299828;184219294;258;YM - view_subscription_popup;view_subscription_popup;channel;{{channelTitle}}
+6229299828;184219294;258;YM - view_subscription_popup;view_subscription_popup;is_logged;{{authType}}
+6229299828;184219294;258;YM - view_subscription_popup;view_subscription_popup;title;{{VideoTitle2}}
+6229299828;184219294;258;YM - view_subscription_popup;view_subscription_popup;uid;{{union}}
+6229299828;184219294;258;YM - view_subscription_popup;view_subscription_popup;url;{{Page URL}}
+6229299828;184219294;258;YM - view_subscription_popup;view_subscription_popup;{ym_id}},'reachGoal','view_subscription_popup',{event_name;view_subscription_popup
+6229299828;184219294;263;Mx - home_page;home_page;is_logged;{{authType}}
+6229299828;184219294;263;Mx - home_page;home_page;profile_type;{{profile_type}}
+6229299828;184219294;264;Mx - auth_phone_next;auth_phone_next;channel;{{channelTitle}}
+6229299828;184219294;264;Mx - auth_phone_next;auth_phone_next;title;{{VideoTitle2}}
+6229299828;184219294;264;Mx - auth_phone_next;auth_phone_next;url;{{Page URL}}
+6229299828;184219294;265;Mx - auth_sms_next;auth_sms_next;channel;{{channelTitle}}
+6229299828;184219294;265;Mx - auth_sms_next;auth_sms_next;title;{{VideoTitle2}}
+6229299828;184219294;265;Mx - auth_sms_next;auth_sms_next;url;{{Page URL}}
+6229299828;184219294;266;Mx - auth_success;auth_success;channel;{{channelTitle}}
+6229299828;184219294;266;Mx - auth_success;auth_success;title;{{VideoTitle2}}
+6229299828;184219294;266;Mx - auth_success;auth_success;url;{{Page URL}}
+6229299828;184219294;267;Mx - payment_success;payment_success;channel;{{channelTitle}}
+6229299828;184219294;267;Mx - payment_success;payment_success;title;{{VideoTitle2}}
+6229299828;184219294;267;Mx - payment_success;payment_success;url;{{Page URL}}
+6229299828;184219294;268;Mx - view_subscription_popup;view_subscription_popup;channel;{{channelTitle}}
+6229299828;184219294;268;Mx - view_subscription_popup;view_subscription_popup;is_logged;{{authType}}
+6229299828;184219294;268;Mx - view_subscription_popup;view_subscription_popup;title;{{VideoTitle2}}
+6229299828;184219294;268;Mx - view_subscription_popup;view_subscription_popup;url;{{Page URL}}
+6229299828;184219294;269;Mx - view_payment_popup - card;view_payment_popup;channel;{{channelTitle}}
+6229299828;184219294;269;Mx - view_payment_popup - card;view_payment_popup;title;{{VideoTitle2}}
+6229299828;184219294;269;Mx - view_payment_popup - card;view_payment_popup;type;old_card
+6229299828;184219294;269;Mx - view_payment_popup - card;view_payment_popup;url;{{Page URL}}
+6229299828;184219294;270;Mx - view_payment_popup - redirect;view_payment_popup;channel;{{channelTitle}}
+6229299828;184219294;270;Mx - view_payment_popup - redirect;view_payment_popup;title;{{VideoTitle2}}
+6229299828;184219294;270;Mx - view_payment_popup - redirect;view_payment_popup;type;new_card
+6229299828;184219294;270;Mx - view_payment_popup - redirect;view_payment_popup;url;{{Page URL}}
+6229299828;184219294;271;Mx - promocode_page;promocode_page;is_logged;{{authType}}
+6229299828;184219294;272;Mx - promocode_activate;promocode_activate;is_logged;{{authType}}
+6229299828;184219294;272;Mx - promocode_activate;promocode_activate;promocode;{{promocode}}
+6229299828;184219294;273;Mx - promocode_check_card_next;promocode_check_card_next;is_logged;{{authType}}
+6229299828;184219294;274;Mx - promocode_success_next;promocode_success_next;is_logged;{{authType}}
+6229299828;184219294;276;Am - auth_screen_phone;auth_screen_phone;channel;{{channelTitle}}
+6229299828;184219294;276;Am - auth_screen_phone;auth_screen_phone;title;{{VideoTitle2}}
+6229299828;184219294;276;Am - auth_screen_phone;auth_screen_phone;url;{{Page URL}}
+6229299828;184219294;280;YM - promocode_click;promocode_click;is_logged;{{authType}}
+6229299828;184219294;280;YM - promocode_click;promocode_click;uid;{{union}}
+6229299828;184219294;280;YM - promocode_click;promocode_click;url;{{Page URL}}
+6229299828;184219294;280;YM - promocode_click;promocode_click;{ym_id}},'reachGoal','promocode_click',{event_name;promocode_click
+6229299828;184219294;282;Am - promocode_click;promocode_click;is_logged;{{authType}}
+6229299828;184219294;282;Am - promocode_click;promocode_click;url;{{Page URL}}
+6229299828;184219294;283;GA - promocode_click;promocode_click;is_logged;{{authType}}
+6229299828;184219294;286;Am - change_language;change_language;is_logged;{{authType}}
+6229299828;184219294;286;Am - change_language;change_language;lang;{{Click Text}}
+6229299828;184219294;286;Am - change_language;change_language;url;{{Page URL}}
+6229299828;184219294;287;GA - change_language;change_language;is_logged;{{authType}}
+6229299828;184219294;287;GA - change_language;change_language;lang;{{Click Text}}
+6229299828;184219294;288;YM - change_language;change_language;lang;{{Click Text}}
+6229299828;184219294;288;YM - change_language;change_language;url;{{Page URL}}
+6229299828;184219294;288;YM - change_language;change_language;{ym_id}},'reachGoal','change_language',{is_logged;{{authType}}
+6229299828;184219294;294;Am - click_play;click_play;click_text;{{Click Text}}
+6229299828;184219294;294;Am - click_play;click_play;is_logged;{{authType}}
+6229299828;184219294;294;Am - click_play;click_play;profile_type;{{profile_type}}
+6229299828;184219294;294;Am - click_play;click_play;title;{{VideoTitle2}}
+6229299828;184219294;304;YM - view_movies;view_movies;is_logged;{{authType}}
+6229299828;184219294;304;YM - view_movies;view_movies;uid;{{union}}
+6229299828;184219294;304;YM - view_movies;view_movies;{ym_id}},'reachGoal','view_movies',{event_name;view_movies
+6229299828;184219294;307;Meta - payment_success;StartTrial;currency;KZT
+6229299828;184219294;307;Meta - payment_success;StartTrial;predicted_ltv;2500.00
+6229299828;184219294;307;Meta - payment_success;StartTrial;value;5.00
+6229299828;184219294;314;Am - change_profile;change_profile;profile_type;{{profile_type}}
+6229299828;184219294;315;GA - change_profile;change_profile;profile_type;{{profile_type}}
+6229299828;184219294;316;YM - change_profile;change_profile;profile_type;{{profile_type}}
+6229299828;184219294;316;YM - change_profile;change_profile;uid;{{union}}
+6229299828;184219294;316;YM - change_profile;change_profile;{ym_id}},'reachGoal','change_profile',{event_name;change_profile
+6229299828;184219294;338;Am - change_subscription;change_subscription;type;{{Click Classes}}
+6229299828;184219294;345;Mx - view_content_description;view_content_description;is_logged;{{authType}}
+6229299828;184219294;345;Mx - view_content_description;view_content_description;title;{{VideoTitle2}}
+6229299828;184219294;345;Mx - view_content_description;view_content_description;type;{{button_start_watch}}
+6229299828;184219294;346;Mx - view_channel_content;view_channel_content;channel;{{channelTitle}}
+6229299828;184219294;346;Mx - view_channel_content;view_channel_content;is_logged;{{authType}}
+6229299828;184219294;346;Mx - view_channel_content;view_channel_content;title;{{VideoTitle2}}
+6229299828;184219294;347;Mx - view_kid;view_kid;is_logged;{{authType}}
+6229299828;184219294;348;Mx - view_series;view_series;is_logged;{{authType}}
+6229299828;184219294;349;Mx - view_movies;view_movies;is_logged;{{authType}}
+6229299828;184219294;350;Mx - view_channels;view_channels;is_logged;{{authType}}
+6229299828;184219294;351;Mx - video_start;video_start;channel;{{channelTitle}}
+6229299828;184219294;351;Mx - video_start;video_start;is_logged;{{authType}}
+6229299828;184219294;351;Mx - video_start;video_start;title;{{VideoTitle2}}
+6229299828;184219294;352;Mx - search_results;search_results;count;{{results_count}}
+6229299828;184219294;352;Mx - search_results;search_results;is_logged;{{authType}}
+6229299828;184219294;352;Mx - search_results;search_results;query;{{SearchQuery}}
+6229299828;184219294;354;Mx - view_sport;view_sport;is_logged;{{authType}}
+6229299828;184219294;355;Mx - view_recommendations;view_recommendations;is_logged;{{authType}}
+6229299828;184219294;355;Mx - view_recommendations;view_recommendations;title;{{collection_title}}
+6229299828;184219294;357;SA - home_page;media_home_page_viewed;product;media
+6229299828;184219294;357;SA - home_page;media_home_page_viewed;profile_type;{{profile_type}}
+6229299828;184219294;357;SA - home_page;media_home_page_viewed;toSA;false
+6229299828;184219294;357;SA - home_page;media_home_page_viewed;toSA;false
+6229299828;184219294;361;SA - payment_success;media_payment_completed;channel;{{channelTitle}}
+6229299828;184219294;361;SA - payment_success;media_payment_completed;product;media
+6229299828;184219294;361;SA - payment_success;media_payment_completed;title;{{VideoTitle2}}
+6229299828;184219294;361;SA - payment_success;media_payment_completed;toSA;false
+6229299828;184219294;361;SA - payment_success;media_payment_completed;toSA;false
+6229299828;184219294;361;SA - payment_success;media_payment_completed;url;{{Page URL}}
+6229299828;184219294;362;SA - media_promocode_activate_clicked;media_promocode_activate_clicked;product;media
+6229299828;184219294;362;SA - media_promocode_activate_clicked;media_promocode_activate_clicked;promocode;{{promocode}}
+6229299828;184219294;362;SA - media_promocode_activate_clicked;media_promocode_activate_clicked;toSA;false
+6229299828;184219294;362;SA - media_promocode_activate_clicked;media_promocode_activate_clicked;toSA;false
+6229299828;184219294;363;SA - media_search_results_viewed;media_search_results_viewed;product;media
+6229299828;184219294;363;SA - media_search_results_viewed;media_search_results_viewed;query;{{SearchQuery}}
+6229299828;184219294;363;SA - media_search_results_viewed;media_search_results_viewed;toSA;false
+6229299828;184219294;363;SA - media_search_results_viewed;media_search_results_viewed;toSA;false
+6229299828;184219294;364;SA - media_video_started;media_video_started;channel;{{channelTitle}}
+6229299828;184219294;364;SA - media_video_started;media_video_started;product;media
+6229299828;184219294;364;SA - media_video_started;media_video_started;title;{{VideoTitle2}}
+6229299828;184219294;364;SA - media_video_started;media_video_started;toSA;false
+6229299828;184219294;364;SA - media_video_started;media_video_started;toSA;false
+6229299828;184219294;365;SA - media_channel_viewed;media_channel_viewed;channel;{{channelTitle}}
+6229299828;184219294;365;SA - media_channel_viewed;media_channel_viewed;product;media
+6229299828;184219294;365;SA - media_channel_viewed;media_channel_viewed;title;{{VideoTitle2}}
+6229299828;184219294;365;SA - media_channel_viewed;media_channel_viewed;toSA;false
+6229299828;184219294;365;SA - media_channel_viewed;media_channel_viewed;toSA;false
+6229299828;184219294;366;SA - media_channels_list_viewed;media_channels_list_viewed;product;media
+6229299828;184219294;366;SA - media_channels_list_viewed;media_channels_list_viewed;toSA;false
+6229299828;184219294;366;SA - media_channels_list_viewed;media_channels_list_viewed;toSA;false
+6229299828;184219294;367;SA - media_content_description_viewed;media_content_description_viewed;product;media
+6229299828;184219294;367;SA - media_content_description_viewed;media_content_description_viewed;title;{{VideoTitle2}}
+6229299828;184219294;367;SA - media_content_description_viewed;media_content_description_viewed;toSA;false
+6229299828;184219294;367;SA - media_content_description_viewed;media_content_description_viewed;toSA;false
+6229299828;184219294;367;SA - media_content_description_viewed;media_content_description_viewed;type;{{button_start_watch}}
+6229299828;184219294;368;SA - media_favorites_viewed;media_favorites_viewed;product;media
+6229299828;184219294;368;SA - media_favorites_viewed;media_favorites_viewed;toSA;false
+6229299828;184219294;368;SA - media_favorites_viewed;media_favorites_viewed;toSA;false
+6229299828;184219294;369;SA - media_kid_viewed;media_kid_viewed;product;media
+6229299828;184219294;369;SA - media_kid_viewed;media_kid_viewed;toSA;false
+6229299828;184219294;369;SA - media_kid_viewed;media_kid_viewed;toSA;false
+6229299828;184219294;370;SA - media_movies_viewed;media_movies_viewed;product;media
+6229299828;184219294;370;SA - media_movies_viewed;media_movies_viewed;toSA;false
+6229299828;184219294;370;SA - media_movies_viewed;media_movies_viewed;toSA;false
+6229299828;184219294;371;SA - media_series_viewed;media_series_viewed;product;media
+6229299828;184219294;371;SA - media_series_viewed;media_series_viewed;toSA;false
+6229299828;184219294;371;SA - media_series_viewed;media_series_viewed;toSA;false
+6229299828;184219294;372;SA - media_sport_viewed;media_sport_viewed;product;media
+6229299828;184219294;372;SA - media_sport_viewed;media_sport_viewed;toSA;false
+6229299828;184219294;372;SA - media_sport_viewed;media_sport_viewed;toSA;false
+6229299828;184219294;373;SA - media_payment_popup_viewed;media_payment_popup_viewed;channel;{{channelTitle}}
+6229299828;184219294;373;SA - media_payment_popup_viewed;media_payment_popup_viewed;product;media
+6229299828;184219294;373;SA - media_payment_popup_viewed;media_payment_popup_viewed;title;{{VideoTitle2}}
+6229299828;184219294;373;SA - media_payment_popup_viewed;media_payment_popup_viewed;toSA;false
+6229299828;184219294;373;SA - media_payment_popup_viewed;media_payment_popup_viewed;toSA;false
+6229299828;184219294;373;SA - media_payment_popup_viewed;media_payment_popup_viewed;url;{{Page URL}}
+6229299828;184219294;374;SA - media_recommendations_viewed;media_recommendations_viewed;product;media
+6229299828;184219294;374;SA - media_recommendations_viewed;media_recommendations_viewed;title;{{collection_title}}
+6229299828;184219294;374;SA - media_recommendations_viewed;media_recommendations_viewed;toSA;false
+6229299828;184219294;374;SA - media_recommendations_viewed;media_recommendations_viewed;toSA;false
+6229299828;184219294;375;SA - media_subscription_popup_viewed;media_subscription_popup_viewed;channel;{{channelTitle}}
+6229299828;184219294;375;SA - media_subscription_popup_viewed;media_subscription_popup_viewed;product;media
+6229299828;184219294;375;SA - media_subscription_popup_viewed;media_subscription_popup_viewed;title;{{VideoTitle2}}
+6229299828;184219294;375;SA - media_subscription_popup_viewed;media_subscription_popup_viewed;toSA;false
+6229299828;184219294;375;SA - media_subscription_popup_viewed;media_subscription_popup_viewed;toSA;false
+6229299828;184219294;375;SA - media_subscription_popup_viewed;media_subscription_popup_viewed;url;{{Page URL}}
+6229299828;184219294;376;SA - media_videopage_vod_viewed;media_videopage_vod_viewed;channel;{{channelTitle}}
+6229299828;184219294;376;SA - media_videopage_vod_viewed;media_videopage_vod_viewed;product;media
+6229299828;184219294;376;SA - media_videopage_vod_viewed;media_videopage_vod_viewed;title;{{VideoTitle2}}
+6229299828;184219294;376;SA - media_videopage_vod_viewed;media_videopage_vod_viewed;toSA;false
+6229299828;184219294;376;SA - media_videopage_vod_viewed;media_videopage_vod_viewed;toSA;false
+6229299828;184219294;383;CS - view_content_description;view_content_description;clientId;{{union}}
+6229299828;184219294;383;CS - view_content_description;view_content_description;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;383;CS - view_content_description;view_content_description;eventDate;new Date().toISOString()
+6229299828;184219294;383;CS - view_content_description;view_content_description;is_logged;{{authType}}
+6229299828;184219294;383;CS - view_content_description;view_content_description;title;{{VideoTitle2}}
+6229299828;184219294;383;CS - view_content_description;view_content_description;type;{{button_start_watch}}
+6229299828;184219294;383;CS - view_content_description;view_content_description;url;{{Page URL}}
+6229299828;184219294;395;CS - view_videopage_vod;view_videopage_vod;channel;{{channelTitle}}
+6229299828;184219294;395;CS - view_videopage_vod;view_videopage_vod;clientId;{{union}}
+6229299828;184219294;395;CS - view_videopage_vod;view_videopage_vod;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;395;CS - view_videopage_vod;view_videopage_vod;eventDate;new Date().toISOString()
+6229299828;184219294;395;CS - view_videopage_vod;view_videopage_vod;is_logged;{{authType}}
+6229299828;184219294;395;CS - view_videopage_vod;view_videopage_vod;title;{{VideoTitle2}}
+6229299828;184219294;395;CS - view_videopage_vod;view_videopage_vod;url;{{Page URL}}
+6229299828;184219294;399;AF SA - payment_success;media_payment_completed;channel;{{channelTitle}}
+6229299828;184219294;399;AF SA - payment_success;media_payment_completed;title;{{VideoTitle2}}
+6229299828;184219294;399;AF SA - payment_success;media_payment_completed;uid;{{union}}
+6229299828;184219294;399;AF SA - payment_success;media_payment_completed;url;{{Page URL}}
+6229299828;184219294;400;AF SA - media_videopage_vod_viewed;media_videopage_vod_viewed;channel;{{channelTitle}}
+6229299828;184219294;400;AF SA - media_videopage_vod_viewed;media_videopage_vod_viewed;title;{{VideoTitle2}}
+6229299828;184219294;400;AF SA - media_videopage_vod_viewed;media_videopage_vod_viewed;uid;{{union}}
+6229299828;184219294;400;AF SA - media_videopage_vod_viewed;media_videopage_vod_viewed;url;{{Page Path}}
+6229299828;184219294;401;AF SA - media_video_started;media_video_started;channel;{{channelTitle}}
+6229299828;184219294;401;AF SA - media_video_started;media_video_started;title;{{VideoTitle2}}
+6229299828;184219294;401;AF SA - media_video_started;media_video_started;uid;{{union}}
+6229299828;184219294;401;AF SA - media_video_started;media_video_started;url;{{Page Path}}
+6229299828;184219294;403;AF SA - home_page;media_home_page_viewed;profile_type;{{profile_type}}
+6229299828;184219294;403;AF SA - home_page;media_home_page_viewed;uid;{{union}}
+6229299828;184219294;404;AF SA - media_content_description_viewed;media_content_description_viewed;title;{{VideoTitle2}}
+6229299828;184219294;404;AF SA - media_content_description_viewed;media_content_description_viewed;type;{{button_start_watch}}
+6229299828;184219294;404;AF SA - media_content_description_viewed;media_content_description_viewed;uid;{{union}}
+6229299828;184219294;404;AF SA - media_content_description_viewed;media_content_description_viewed;url;{{Page URL}}
+6229299828;184219294;405;AF SA - media_channel_viewed;media_channel_viewed;channel;{{channelTitle}}
+6229299828;184219294;405;AF SA - media_channel_viewed;media_channel_viewed;title;{{VideoTitle2}}
+6229299828;184219294;405;AF SA - media_channel_viewed;media_channel_viewed;uid;{{union}}
+6229299828;184219294;405;AF SA - media_channel_viewed;media_channel_viewed;url;{{Page URL}}
+6229299828;184219294;406;AF SA - media_kid_viewed;media_kid_viewed;uid;{{union}}
+6229299828;184219294;407;AF SA - media_series_viewed;media_series_viewed;uid;{{union}}
+6229299828;184219294;408;AF SA - media_movies_viewed;media_movies_viewed;uid;{{union}}
+6229299828;184219294;409;AF SA - media_channels_list_viewed;media_channels_list_viewed;uid;{{union}}
+6229299828;184219294;410;AF SA - media_sport_viewed;media_sport_viewed;uid;{{union}}
+6229299828;184219294;411;AF SA - media_recommendations_viewed;media_recommendations_viewed;title;{{collection_title}}
+6229299828;184219294;411;AF SA - media_recommendations_viewed;media_recommendations_viewed;uid;{{union}}
+6229299828;184219294;411;AF SA - media_recommendations_viewed;media_recommendations_viewed;url;{{Page URL}}
+6229299828;184219294;412;AF SA - media_promocode_activate_clicked;media_promocode_activate_clicked;promocode;{{promocode}}
+6229299828;184219294;412;AF SA - media_promocode_activate_clicked;media_promocode_activate_clicked;uid;{{union}}
+6229299828;184219294;413;CS - home_page;home_page;clientId;{{union}}
+6229299828;184219294;413;CS - home_page;home_page;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;413;CS - home_page;home_page;eventDate;new Date().toISOString()
+6229299828;184219294;413;CS - home_page;home_page;is_logged;{{authType}}
+6229299828;184219294;413;CS - home_page;home_page;profile_type;{{profile_type}}
+6229299828;184219294;413;CS - home_page;home_page;url;{{Page URL}}
+6229299828;184219294;414;CS - view_channel_content;view_channel_content;channel;{{channelTitle}}
+6229299828;184219294;414;CS - view_channel_content;view_channel_content;clientId;{{union}}
+6229299828;184219294;414;CS - view_channel_content;view_channel_content;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;414;CS - view_channel_content;view_channel_content;eventDate;new Date().toISOString()
+6229299828;184219294;414;CS - view_channel_content;view_channel_content;is_logged;{{authType}}
+6229299828;184219294;414;CS - view_channel_content;view_channel_content;title;{{VideoTitle2}}
+6229299828;184219294;414;CS - view_channel_content;view_channel_content;url;{{Page URL}}
+6229299828;184219294;415;CS - view_channels;view_channels;clientId;{{union}}
+6229299828;184219294;415;CS - view_channels;view_channels;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;415;CS - view_channels;view_channels;eventDate;new Date().toISOString()
+6229299828;184219294;415;CS - view_channels;view_channels;is_logged;{{authType}}
+6229299828;184219294;416;CS - view_favorites;view_favorites;clientId;{{union}}
+6229299828;184219294;416;CS - view_favorites;view_favorites;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;416;CS - view_favorites;view_favorites;eventDate;new Date().toISOString()
+6229299828;184219294;416;CS - view_favorites;view_favorites;is_logged;{{authType}}
+6229299828;184219294;417;CS - view_kid;view_kid;clientId;{{union}}
+6229299828;184219294;417;CS - view_kid;view_kid;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;417;CS - view_kid;view_kid;eventDate;new Date().toISOString()
+6229299828;184219294;417;CS - view_kid;view_kid;is_logged;{{authType}}
+6229299828;184219294;418;CS - view_movies;view_movies;clientId;{{union}}
+6229299828;184219294;418;CS - view_movies;view_movies;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;418;CS - view_movies;view_movies;eventDate;new Date().toISOString()
+6229299828;184219294;418;CS - view_movies;view_movies;is_logged;{{authType}}
+6229299828;184219294;419;CS - promocode_activate;promocode_activate;clientId;{{union}}
+6229299828;184219294;419;CS - promocode_activate;promocode_activate;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;419;CS - promocode_activate;promocode_activate;eventDate;new Date().toISOString()
+6229299828;184219294;419;CS - promocode_activate;promocode_activate;is_logged;{{authType}}
+6229299828;184219294;419;CS - promocode_activate;promocode_activate;promocode;{{promocode}}
+6229299828;184219294;420;CS - view_recommendations;view_recommendations;clientId;{{union}}
+6229299828;184219294;420;CS - view_recommendations;view_recommendations;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;420;CS - view_recommendations;view_recommendations;eventDate;new Date().toISOString()
+6229299828;184219294;420;CS - view_recommendations;view_recommendations;is_logged;{{authType}}
+6229299828;184219294;420;CS - view_recommendations;view_recommendations;title;{{collection_title}}
+6229299828;184219294;422;CS - search_results;search_results;clientId;{{union}}
+6229299828;184219294;422;CS - search_results;search_results;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;422;CS - search_results;search_results;eventDate;new Date().toISOString()
+6229299828;184219294;422;CS - search_results;search_results;is_logged;{{authType}}
+6229299828;184219294;422;CS - search_results;search_results;query;{{SearchQuery}}
+6229299828;184219294;423;CS - view_series;view_series;clientId;{{union}}
+6229299828;184219294;423;CS - view_series;view_series;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;423;CS - view_series;view_series;eventDate;new Date().toISOString()
+6229299828;184219294;423;CS - view_series;view_series;is_logged;{{authType}}
+6229299828;184219294;424;CS - view_sport;view_sport;clientId;{{union}}
+6229299828;184219294;424;CS - view_sport;view_sport;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;424;CS - view_sport;view_sport;eventDate;new Date().toISOString()
+6229299828;184219294;424;CS - view_sport;view_sport;is_logged;{{authType}}
+6229299828;184219294;425;CS - view_subscription_popup;view_subscription_popup;channel;{{channelTitle}}
+6229299828;184219294;425;CS - view_subscription_popup;view_subscription_popup;clientId;{{union}}
+6229299828;184219294;425;CS - view_subscription_popup;view_subscription_popup;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;425;CS - view_subscription_popup;view_subscription_popup;eventDate;new Date().toISOString()
+6229299828;184219294;425;CS - view_subscription_popup;view_subscription_popup;is_logged;{{authType}}
+6229299828;184219294;425;CS - view_subscription_popup;view_subscription_popup;title;{{VideoTitle2}}
+6229299828;184219294;425;CS - view_subscription_popup;view_subscription_popup;url;{{Page URL}}
+6229299828;184219294;426;CS - video_start;video_start;channel;{{channelTitle}}
+6229299828;184219294;426;CS - video_start;video_start;clientId;{{union}}
+6229299828;184219294;426;CS - video_start;video_start;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;426;CS - video_start;video_start;eventDate;new Date().toISOString()
+6229299828;184219294;426;CS - video_start;video_start;is_logged;{{authType}}
+6229299828;184219294;426;CS - video_start;video_start;title;{{VideoTitle2}}
+6229299828;184219294;426;CS - video_start;video_start;url;{{Page URL}}
+6229299828;184219294;427;CS - payment_success;payment_success;channel;{{channelTitle}}
+6229299828;184219294;427;CS - payment_success;payment_success;clientId;{{union}}
+6229299828;184219294;427;CS - payment_success;payment_success;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;427;CS - payment_success;payment_success;eventDate;new Date().toISOString()
+6229299828;184219294;427;CS - payment_success;payment_success;is_logged;{{authType}}
+6229299828;184219294;427;CS - payment_success;payment_success;title;{{VideoTitle2}}
+6229299828;184219294;427;CS - payment_success;payment_success;url;{{Page URL}}
+6229299828;184219294;428;CS - promocode_page;promocode_page;clientId;{{union}}
+6229299828;184219294;428;CS - promocode_page;promocode_page;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;428;CS - promocode_page;promocode_page;eventDate;new Date().toISOString()
+6229299828;184219294;428;CS - promocode_page;promocode_page;is_logged;{{authType}}
+6229299828;184219294;428;CS - promocode_page;promocode_page;url;{{Page URL}}
+6229299828;184219294;429;CS - auth_phone_next;auth_phone_next;channel;{{channelTitle}}
+6229299828;184219294;429;CS - auth_phone_next;auth_phone_next;clientId;{{union}}
+6229299828;184219294;429;CS - auth_phone_next;auth_phone_next;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;429;CS - auth_phone_next;auth_phone_next;eventDate;new Date().toISOString()
+6229299828;184219294;429;CS - auth_phone_next;auth_phone_next;title;{{VideoTitle2}}
+6229299828;184219294;429;CS - auth_phone_next;auth_phone_next;url;{{Page URL}}
+6229299828;184219294;430;CS - auth_screen_phone;auth_screen_phone;channel;{{channelTitle}}
+6229299828;184219294;430;CS - auth_screen_phone;auth_screen_phone;clientId;{{union}}
+6229299828;184219294;430;CS - auth_screen_phone;auth_screen_phone;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;430;CS - auth_screen_phone;auth_screen_phone;eventDate;new Date().toISOString()
+6229299828;184219294;430;CS - auth_screen_phone;auth_screen_phone;title;{{VideoTitle2}}
+6229299828;184219294;430;CS - auth_screen_phone;auth_screen_phone;url;{{Page URL}}
+6229299828;184219294;431;CS - auth_sms_next;auth_sms_next;channel;{{channelTitle}}
+6229299828;184219294;431;CS - auth_sms_next;auth_sms_next;clientId;{{union}}
+6229299828;184219294;431;CS - auth_sms_next;auth_sms_next;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;431;CS - auth_sms_next;auth_sms_next;eventDate;new Date().toISOString()
+6229299828;184219294;431;CS - auth_sms_next;auth_sms_next;title;{{VideoTitle2}}
+6229299828;184219294;431;CS - auth_sms_next;auth_sms_next;url;{{Page URL}}
+6229299828;184219294;432;CS - auth_success;auth_success;channel;{{channelTitle}}
+6229299828;184219294;432;CS - auth_success;auth_success;clientId;{{union}}
+6229299828;184219294;432;CS - auth_success;auth_success;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;432;CS - auth_success;auth_success;eventDate;new Date().toISOString()
+6229299828;184219294;432;CS - auth_success;auth_success;title;{{VideoTitle2}}
+6229299828;184219294;432;CS - auth_success;auth_success;url;{{Page URL}}
+6229299828;184219294;435;Am - start_page;start_page;is_logged;{{authType}}
+6229299828;184219294;435;Am - start_page;start_page;is_sa;{{is_sa}}
+6229299828;184219294;435;Am - start_page;start_page;path;{{Page Path}}
+6229299828;184219294;435;Am - start_page;start_page;profile_type;{{profile_type}}
+6229299828;184219294;436;CS - start_page;start_page;clientId;{{union}}
+6229299828;184219294;436;CS - start_page;start_page;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;436;CS - start_page;start_page;eventDate;new Date().toISOString()
+6229299828;184219294;436;CS - start_page;start_page;is_logged;{{authType}}
+6229299828;184219294;436;CS - start_page;start_page;profile_type;{{profile_type}}
+6229299828;184219294;436;CS - start_page;start_page;url;{{Page URL}}
+6229299828;184219294;439;Am - filter_open;filter_open;path;{{Page Path}}
+6229299828;184219294;439;Am - filter_open;filter_open;title;{{Click Text}}
+6229299828;184219294;439;Am - filter_open;filter_open;type;{{filter_name}}
+6229299828;184219294;440;Am - filter_select;filter_select;path;{{Page Path}}
+6229299828;184219294;440;Am - filter_select;filter_select;title;{{Click Text}}
+6229299828;184219294;440;Am - filter_select;filter_select;type;{{filter_name}}
+6229299828;184219294;442;SA - start_page;media_start_page_viewed;product;media
+6229299828;184219294;442;SA - start_page;media_start_page_viewed;toSA;false
+6229299828;184219294;442;SA - start_page;media_start_page_viewed;toSA;false
+6229299828;184219294;442;SA - start_page;media_start_page_viewed;url;{{Page Path}}
+6229299828;184219294;443;AF SA - start_page;media_start_page_viewed;uid;{{union}}
+6229299828;184219294;443;AF SA - start_page;media_start_page_viewed;url;{{Page Path}}
+6229299828;184219294;445;AF SA - packet_page;media_offer_page_viewed;uid;{{union}}
+6229299828;184219294;445;AF SA - packet_page;media_offer_page_viewed;url;{{Page Path}}
+6229299828;184219294;446;SA - packet_page;media_offer_page_viewed;product;media
+6229299828;184219294;446;SA - packet_page;media_offer_page_viewed;toSA;false
+6229299828;184219294;446;SA - packet_page;media_offer_page_viewed;toSA;false
+6229299828;184219294;446;SA - packet_page;media_offer_page_viewed;url;{{Page Path}}
+6229299828;184219294;450;Am - click_favorites_add;click_favorites_add;content_id;{{Page Path}}
+6229299828;184219294;451;CS - media_cover_click;media_cover_click;clientId;{{union}}
+6229299828;184219294;451;CS - media_cover_click;media_cover_click;content_id;{{content_id}}
+6229299828;184219294;451;CS - media_cover_click;media_cover_click;count;{{element_index}}
+6229299828;184219294;451;CS - media_cover_click;media_cover_click;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;451;CS - media_cover_click;media_cover_click;eventDate;new Date().toISOString()
+6229299828;184219294;451;CS - media_cover_click;media_cover_click;is_logged;{{authType}}
+6229299828;184219294;451;CS - media_cover_click;media_cover_click;path;{{Page Path}}
+6229299828;184219294;451;CS - media_cover_click;media_cover_click;row_id;{{row_id}}
+6229299828;184219294;451;CS - media_cover_click;media_cover_click;subhead;{{subhead_title_click}}
+6229299828;184219294;451;CS - media_cover_click;media_cover_click;title;{{title_alt}}
+6229299828;184219294;451;CS - media_cover_click;media_cover_click;type;{{item_type}}
+6229299828;184219294;452;CS - show_media_cover;show_media_cover;clientId;{{union}}
+6229299828;184219294;452;CS - show_media_cover;show_media_cover;content_id;{{content_id}}
+6229299828;184219294;452;CS - show_media_cover;show_media_cover;count;{{element_index}}
+6229299828;184219294;452;CS - show_media_cover;show_media_cover;deviceId;serial ? serial : 'dv_missing'
+6229299828;184219294;452;CS - show_media_cover;show_media_cover;eventDate;new Date().toISOString()
+6229299828;184219294;452;CS - show_media_cover;show_media_cover;is_logged;{{authType}}
+6229299828;184219294;452;CS - show_media_cover;show_media_cover;path;{{Page Path}}
+6229299828;184219294;452;CS - show_media_cover;show_media_cover;row_id;{{row_id}}
+6229299828;184219294;452;CS - show_media_cover;show_media_cover;subhead;{{subhead_title_click}}
+6229299828;184219294;452;CS - show_media_cover;show_media_cover;title;{{title_alt}}
+6229299828;184219294;452;CS - show_media_cover;show_media_cover;type;{{item_type}}
+6229299828;184219294;453;Am - show_media_cover;show_media_cover;content_id;{{content_id}}
+6229299828;184219294;453;Am - show_media_cover;show_media_cover;count;{{element_index}}
+6229299828;184219294;453;Am - show_media_cover;show_media_cover;is_logged;{{authType}}
+6229299828;184219294;453;Am - show_media_cover;show_media_cover;path;{{Page Path}}
+6229299828;184219294;453;Am - show_media_cover;show_media_cover;row_id;{{row_id}}
+6229299828;184219294;453;Am - show_media_cover;show_media_cover;subhead;{{subhead_title_click}}
+6229299828;184219294;453;Am - show_media_cover;show_media_cover;title;{{title_alt}}
+6229299828;184219294;453;Am - show_media_cover;show_media_cover;type;{{item_type}}

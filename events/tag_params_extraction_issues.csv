@@ -1,0 +1,24 @@
+﻿issue_type;accountId;containerId;tagId;name;type;destination;eventType;extractionMethod;note
+event_without_extracted_params;6229299828;184219294;48;DataLayer - video_start - hist;html;DataLayer;video_played|video_played_error|video_not_played;parse_data_layer_push;EventType was detected, but no event parameters were extracted.
+event_without_extracted_params;6229299828;184219294;50;DataLayer - video_start - page;html;DataLayer;video_played|video_played_error|video_not_played;parse_data_layer_push;EventType was detected, but no event parameters were extracted.
+event_without_extracted_params;6229299828;184219294;200;Am - delete_card;cvt_184219294_11;Amplitude;delete_card;amplitude/eventProperties;EventType was detected, but no event parameters were extracted.
+event_without_extracted_params;6229299828;184219294;201;GA - delete_card;gaawe;GA4;delete_card;gaawe/eventSettingsTable;EventType was detected, but no event parameters were extracted.
+event_without_extracted_params;6229299828;184219294;203;Am - confirm_button;cvt_184219294_11;Amplitude;confirm_button;amplitude/eventProperties;EventType was detected, but no event parameters were extracted.
+event_without_extracted_params;6229299828;184219294;204;GA - confirm_button;gaawe;GA4;confirm_button;gaawe/eventSettingsTable;EventType was detected, but no event parameters were extracted.
+event_without_extracted_params;6229299828;184219294;216;auth_user_id;html;HTML/Other;set_userid;parse_data_layer_push;EventType was detected, but no event parameters were extracted.
+event_without_extracted_params;6229299828;184219294;292;Am - landing_page;cvt_184219294_11;Amplitude;landing_page;amplitude/eventProperties;EventType was detected, but no event parameters were extracted.
+event_without_extracted_params;6229299828;184219294;305;Meta;html;Meta;PageView;parse_fbq;EventType was detected, but no event parameters were extracted.
+event_without_extracted_params;6229299828;184219294;308;Meta - auth_success;html;Meta;CompleteRegistration;parse_fbq;EventType was detected, but no event parameters were extracted.
+event_without_extracted_params;6229299828;184219294;310;TikTok - auth_success;html;TikTok;CompleteRegistration;parse_ttq;EventType was detected, but no event parameters were extracted.
+event_without_extracted_params;6229299828;184219294;311;TikTok - payment_success;html;TikTok;Subscribe;parse_ttq;EventType was detected, but no event parameters were extracted.
+event_without_extracted_params;6229299828;184219294;317;DataLayer - change_profile;html;DataLayer;change_profile;parse_data_layer_push;EventType was detected, but no event parameters were extracted.
+event_without_extracted_params;6229299828;184219294;321;token_ready_push;html;HTML/Other;token_ready;parse_data_layer_push;EventType was detected, but no event parameters were extracted.
+event_without_extracted_params;6229299828;184219294;329;Meta - promocode_success_next;html;Meta;promocode_success_next;parse_fbq;EventType was detected, but no event parameters were extracted.
+event_without_extracted_params;6229299828;184219294;330;Meta - promocode_activate;html;Meta;promocode_activate;parse_fbq;EventType was detected, but no event parameters were extracted.
+event_without_extracted_params;6229299828;184219294;331;Meta - success (payment / promocode);html;Meta;success_payment_promocode_trial;parse_fbq;EventType was detected, but no event parameters were extracted.
+event_without_extracted_params;6229299828;184219294;332;GA - success (payment / promocode);gaawe;GA4;success_payment_promocode_trial;gaawe/eventSettingsTable;EventType was detected, but no event parameters were extracted.
+event_without_extracted_params;6229299828;184219294;353;Mx - view_favorites;cvt_184219294_261;Mixpanel;view_favorites;mixpanel/trackParameters;EventType was detected, but no event parameters were extracted.
+no_eventType_detected;6229299828;184219294;9;YM;html;Yandex Metrika;;;No eventType could be detected from HTML. May be init/user/global tag.
+no_eventType_detected;6229299828;184219294;223;YM - user_id;html;Yandex Metrika;;;No eventType could be detected from HTML. May be init/user/global tag.
+no_eventType_detected;6229299828;184219294;306;TikTok;html;TikTok;;;No eventType could be detected from HTML. May be init/user/global tag.
+no_eventType_detected;6229299828;184219294;340;SA - set cookie;html;SuperApp bridge;;;No eventType could be detected from HTML. May be init/user/global tag.
