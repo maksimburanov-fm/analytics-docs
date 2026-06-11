@@ -11,7 +11,7 @@ WITH google_ads_dedup AS (
                     g.platform
                 ORDER BY g."change_timestamp$"::timestamp DESC
             ) AS rn
-        FROM s14_google_ads g
+        FROM freedom_broker_dwh.s14_google_ads g
     ) t
     WHERE rn = 1
 ),
@@ -97,7 +97,7 @@ google_cpi_dedup AS (
                     c.conversion_action_name
                 ORDER BY c."change_timestamp$"::timestamp DESC
             ) AS rn
-        FROM s14_google_ads_cpi c
+        FROM freedom_broker_dwh.s14_google_ads_cpi c
     ) t
     WHERE rn = 1
 ),

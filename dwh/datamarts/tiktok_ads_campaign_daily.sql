@@ -11,7 +11,7 @@ WITH tiktok_ads_dedup AS (
                     t.ad_id
                 ORDER BY t."change_timestamp$"::timestamp DESC
             ) AS rn
-        FROM s18_tiktok_ads_basic t
+        FROM freedom_broker_dwh.s18_tiktok_ads_basic t
     ) x
     WHERE rn = 1
 ),
