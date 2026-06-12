@@ -100,5 +100,3 @@ LEFT JOIN events_agg a
    ) 
 select * 
 from sa_funnel
-where media_start_page_viewed_time is not null and user_id is null
-order by install_time desc
