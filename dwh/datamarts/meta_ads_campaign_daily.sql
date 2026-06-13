@@ -35,7 +35,7 @@ SELECT
         WHEN SUM(reach) > 0
         THEN SUM(impressions)::numeric / SUM(reach)
     END AS frequency_approx
-FROM freedom_broker_dwh.s14_meta_ads
+FROM spark_bsns_vlt.msp_ref_s14_meta_ads
 GROUP BY
     day::date,
     account_id,
