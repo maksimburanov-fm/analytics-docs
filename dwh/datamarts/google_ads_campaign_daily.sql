@@ -9,9 +9,9 @@ WITH google_ads_dedup AS (
                     g.customer_id,
                     g.campaign_id,
                     g.platform
-                ORDER BY g."change_timestamp$"::timestamp DESC
+                ORDER BY g."change_timestamp"::timestamp DESC
             ) AS rn
-        FROM freedom_broker_dwh.s14_google_ads g
+        FROM spark_bsns_vlt.msp_ref_s14_google_ads g
     ) t
     WHERE rn = 1
 ),
@@ -95,9 +95,9 @@ google_cpi_dedup AS (
                     c.customer_id,
                     c.campaign_id,
                     c.conversion_action_name
-                ORDER BY c."change_timestamp$"::timestamp DESC
+                ORDER BY c."change_timestamp"::timestamp DESC
             ) AS rn
-        FROM freedom_broker_dwh.s14_google_ads_cpi c
+        FROM spark_bsns_vlt.msp_ref_s14_google_ads_cpi c
     ) t
     WHERE rn = 1
 ),
