@@ -358,6 +358,7 @@ with
                 case
                     when u.provider_name = 'All line' then 41
                     when u.provider_name = 'Freedom Media' then 1
+                    when u.provider_name = 'Lifestyle' then 43
                     when u.provider_name = 'Freedom Telecom' then 4
                     when u.provider_name = 'SuperApp' then 8
                     when u.provider_name = 'Тест Setanta + Netflix' then 6
