@@ -196,15 +196,17 @@ with
                 when packet_id in (4, 9, 12, 14, 56, 57, 72) then 'Stand Alone'
                 when packet_id = 7 then 'Telecom'
                 when packet_id in (10, 16, 54, 58, 59, 66, 71, 73) then 'Super App'
+                when packet_id in (64) then 'Friends'
                 when packet_id in (52, 61, 62)  then 'Amediateka'
                 when packet_id = 60 then 'All Line'
                 else 'Other'
             end as f_source,
             case
-                when packet_id in (4, 9, 12, 14, 56, 57) then 1
+                when packet_id in (4, 9, 12, 14, 56, 57, 72) then 1
                 when packet_id = 7 then 4
-                when packet_id in (10, 16, 54, 58, 59) then 8
-                when packet_id = 52 then provider_id
+                when packet_id in (10, 16, 54, 58, 59, 66, 71, 73)  then 8
+                when packet_id in (64) then 43
+                when packet_id in (52, 61, 62) then provider_id
                 when packet_id = 60 then 41
                 else provider_id
             end as f_id,
@@ -216,7 +218,7 @@ with
         FROM
             spark_bsns_vlt.msp_ref_subscriptions
         where
-            packet_id not in (1, 2, 3, 5, 6, 8, 11, 13, 15, 17, 18, 19, 53, 55, 63, 64, 65, 67, 68, 69, 70)
+            packet_id not in (1, 2, 3, 5, 6, 8, 11, 13, 15, 17, 18, 19, 53, 55, 63, 65, 67, 68, 69, 70)
             and provider_id not in (2, 3, 5, 6, 7, 44, 42, 45)
             and end_date::date - start_date::date != 0
             and user_id not in 
