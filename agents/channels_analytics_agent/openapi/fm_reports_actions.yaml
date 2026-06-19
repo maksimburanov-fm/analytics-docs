@@ -1,0 +1,307 @@
+openapi: 3.1.0
+info:
+  title: Freedom Media Reports Actions
+  version: 0.1.0
+  description: Actions for reading Freedom Media report API and public CSV dictionaries.
+servers:
+  - url: https://reports-freedommedia.platform24.tv
+paths:
+  /api/queries/18/results:
+    post:
+      operationId: getChannelViewsReport
+      summary: Получить отчёт по просмотрам телеканалов
+      description: >
+        Возвращает агрегированный отчёт по просмотрам телеканалов за период.
+        Если пользователь указывает канал, провайдера или пакет названием,
+        сначала используй соответствующий справочник, чтобы найти id.
+      security:
+        - ReportApiToken: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - id
+                - parameters
+                - apply_auto_limit
+              properties:
+                id:
+                  type: integer
+                  enum: [18]
+                  default: 18
+                  description: ID сохранённого запроса. Для этого отчёта всегда 18.
+                parameters:
+                  type: object
+                  required:
+                    - channel
+                    - period
+                    - provider
+                    - application_type
+                    - sort_field
+                    - is_live
+                    - packet
+                    - user_state
+                  properties:
+                    channel:
+                      type: array
+                      description: Список id телеканалов. Значение "0" означает все каналы.
+                      items:
+                        type: string
+                      default: ["0"]
+                      examples:
+                        - ["0"]
+                        - ["4300", "4301"]
+                    period:
+                      type: object
+                      required:
+                        - start
+                        - end
+                      properties:
+                        start:
+                          type: string
+                          format: date
+                          description: Дата начала периода включительно в формате YYYY-MM-DD.
+                          examples: ["2026-06-01"]
+                        end:
+                          type: string
+                          format: date
+                          description: Дата конца периода включительно в формате YYYY-MM-DD.
+                          examples: ["2026-06-07"]
+                    provider:
+                      type: array
+                      description: Список id провайдеров. Значение "0" означает все провайдеры.
+                      items:
+                        type: string
+                      default: ["0"]
+                      examples:
+                        - ["0"]
+                        - ["1", "8"]
+                    application_type:
+                      type: array
+                      description: >
+                        Список типов устройств. Значение "'all'" означает все устройства.
+                        Важно: значения передаются со внутренними одинарными кавычками.
+                      items:
+                        type: string
+                        enum:
+                          - "'all'"
+                          - "'android-mobile'"
+                          - "'android-tv'"
+                          - "'ios'"
+                          - "'tvos'"
+                          - "'webkit'"
+                          - "'web'"
+                          - "'dune'"
+                      default: ["'all'"]
+                    sort_field:
+                      type: string
+                      description: Поле сортировки результата. Рекомендуемое значение по умолчанию — user_c.
+                      enum: [user_c]
+                      default: user_c
+                    is_live:
+                      type: string
+                      description: Тип просмотра пользователя.
+                      enum:
+                        - все
+                        - эфир
+                        - запись
+                      default: все
+                    packet:
+                      type: array
+                      description: Список id пакетов. Значение "0" означает все пакеты.
+                      items:
+                        type: string
+                      default: ["0"]
+                      examples:
+                        - ["0"]
+                        - ["1", "2"]
+                    user_state:
+                      type: array
+                      description: >
+                        Тип пользователя. Важно: значения передаются со внутренними одинарными кавычками.
+                      items:
+                        type: string
+                        enum:
+                          - "'all'"
+                          - "'free'"
+                          - "'guest'"
+                          - "'promo'"
+                          - "'full_payment'"
+                          - "'trial'"
+                      default: ["'all'"]
+                apply_auto_limit:
+                  type: boolean
+                  description: Для этого отчёта всегда false.
+                  enum: [false]
+                  default: false
+            example:
+              id: 18
+              parameters:
+                channel: ["0"]
+                period:
+                  start: "2026-06-01"
+                  end: "2026-06-07"
+                provider: ["0"]
+                application_type: ["'all'"]
+                sort_field: user_c
+                is_live: все
+                packet: ["0"]
+                user_state: ["'all'"]
+              apply_auto_limit: false
+      responses:
+        "200":
+          description: Успешный ответ отчётного API.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  query_result:
+                    type: object
+                    properties:
+                      data:
+                        type: object
+                        properties:
+                          rows:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                num:
+                                  type: integer
+                                  description: Номер строки в результате.
+                                channel_name:
+                                  type: string
+                                  description: Название телеканала.
+                                session_c:
+                                  type: integer
+                                  description: Количество сессий просмотра.
+                                user_c:
+                                  type: integer
+                                  description: Количество уникальных пользователей.
+                                user_5min_c:
+                                  type: integer
+                                  description: Количество пользователей с суммарным просмотром канала больше 300 секунд.
+                                view_time_h:
+                                  type: number
+                                  description: Общее время просмотра в часах.
+                                median_view_time_m:
+                                  type: number
+                                  description: Медианное время просмотра в минутах.
+  /spreadsheets/d/e/2PACX-1vQ0CtKBvuvSGsjAve6o3WYAViB3ALx5zipmrpNNItN89oDO3RQgCH_IBefZ66yiyfEoujbwZHgYWaMd/pub:
+    get:
+      operationId: getChannelsDictionary
+      summary: Получить справочник телеканалов
+      description: Возвращает опубликованный Google Sheets CSV со справочником телеканалов.
+      servers:
+        - url: https://docs.google.com
+      parameters:
+        - name: gid
+          in: query
+          required: true
+          schema:
+            type: integer
+            enum: [0]
+            default: 0
+        - name: single
+          in: query
+          required: true
+          schema:
+            type: boolean
+            enum: [true]
+            default: true
+        - name: output
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [csv]
+            default: csv
+      responses:
+        "200":
+          description: CSV со справочником телеканалов.
+          content:
+            text/csv:
+              schema:
+                type: string
+  /spreadsheets/d/e/2PACX-1vRT3LziYqZHcLREhd0K6pMCpfqeHQVN2iH3M0a-CLj3shgzEobZuM3waJ6WgInD3oRvt5xMg0eBswMc/pub:
+    get:
+      operationId: getProvidersDictionary
+      summary: Получить справочник провайдеров
+      description: Возвращает опубликованный Google Sheets CSV со справочником провайдеров.
+      servers:
+        - url: https://docs.google.com
+      parameters:
+        - name: gid
+          in: query
+          required: true
+          schema:
+            type: integer
+            enum: [0]
+            default: 0
+        - name: single
+          in: query
+          required: true
+          schema:
+            type: boolean
+            enum: [true]
+            default: true
+        - name: output
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [csv]
+            default: csv
+      responses:
+        "200":
+          description: CSV со справочником провайдеров.
+          content:
+            text/csv:
+              schema:
+                type: string
+  /spreadsheets/d/e/2PACX-1vS6-qVAuiYdvJJXqQKcfDRLnRu6emBOo0ihGNTpkaNAei1IQ-ohyY0PPtUXVMm7N4s3AIx4NaCO0_F4/pub:
+    get:
+      operationId: getPacketsDictionary
+      summary: Получить справочник пакетов
+      description: Возвращает опубликованный Google Sheets CSV со справочником пакетов.
+      servers:
+        - url: https://docs.google.com
+      parameters:
+        - name: gid
+          in: query
+          required: true
+          schema:
+            type: integer
+            enum: [0]
+            default: 0
+        - name: single
+          in: query
+          required: true
+          schema:
+            type: boolean
+            enum: [true]
+            default: true
+        - name: output
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [csv]
+            default: csv
+      responses:
+        "200":
+          description: CSV со справочником пакетов.
+          content:
+            text/csv:
+              schema:
+                type: string
+components:
+  securitySchemes:
+    ReportApiToken:
+      type: apiKey
+      in: header
+      name: authorization
+      description: Токен отчётного API. В Custom GPT Action настрой как API key с custom header `authorization`.
