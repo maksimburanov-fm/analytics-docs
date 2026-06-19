@@ -1,0 +1,109 @@
+openapi: 3.1.0
+info:
+  title: Freedom Media Google Sheets Dictionaries
+  version: 1.0.0
+servers:
+  - url: https://docs.google.com
+
+paths:
+  /spreadsheets/d/e/2PACX-1vQ0CtKBvuvSGsjAve6o3WYAViB3ALx5zipmrpNNItN89oDO3RQgCH_IBefZ66yiyfEoujbwZHgYWaMd/pub:
+    get:
+      operationId: getChannelsDictionary
+      summary: Получить справочник телеканалов
+      description: Возвращает опубликованный Google Sheets CSV со справочником телеканалов.
+      parameters:
+        - name: gid
+          in: query
+          required: true
+          schema:
+            type: integer
+            default: 0
+        - name: single
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: true
+        - name: output
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [csv]
+            default: csv
+      responses:
+        "200":
+          description: CSV со справочником телеканалов.
+          content:
+            text/plain:
+              schema:
+                type: string
+
+  /spreadsheets/d/e/2PACX-1vRT3LziYqZHcLREhd0K6pMCpfqeHQVN2iH3M0a-CLj3shgzEobZuM3waJ6WgInD3oRvt5xMg0eBswMc/pub:
+    get:
+      operationId: getProvidersDictionary
+      summary: Получить справочник провайдеров
+      description: Возвращает опубликованный Google Sheets CSV со справочником провайдеров.
+      parameters:
+        - name: gid
+          in: query
+          required: true
+          schema:
+            type: integer
+            default: 0
+        - name: single
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: true
+        - name: output
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [csv]
+            default: csv
+      responses:
+        "200":
+          description: CSV со справочником провайдеров.
+          content:
+            text/plain:
+              schema:
+                type: string
+
+  /spreadsheets/d/e/2PACX-1vS6-qVAuiYdvJJXqQKcfDRLnRu6emBOo0ihGNTpkaNAei1IQ-ohyY0PPtUXVMm7N4s3AIx4NaCO0_F4/pub:
+    get:
+      operationId: getPacketsDictionary
+      summary: Получить справочник пакетов
+      description: Возвращает опубликованный Google Sheets CSV со справочником пакетов.
+      parameters:
+        - name: gid
+          in: query
+          required: true
+          schema:
+            type: integer
+            default: 0
+        - name: single
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: true
+        - name: output
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [csv]
+            default: csv
+      responses:
+        "200":
+          description: CSV со справочником пакетов.
+          content:
+            text/plain:
+              schema:
+                type: string
+
+components:
+  schemas: {}
