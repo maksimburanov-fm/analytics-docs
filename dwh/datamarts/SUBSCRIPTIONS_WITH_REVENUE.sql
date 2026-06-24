@@ -152,8 +152,8 @@ with
             coalesce(price, 0) as price,
             bank_alias,
             case
-                when price is null then 'manual'
-                when price <= 5 then 'promo/trial'
+                when (price is null or price = 0) and sub_type not in ('trial','promo') then 'manual'
+                when  sub_type in ('trial','promo') then 'promo/trial'
                 else 'full_price'
             end as payment_status
         from
