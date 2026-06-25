@@ -1,0 +1,17 @@
+{
+    "id": 18,
+    "parameters": {
+        "channel": [],
+        "period": {
+            "start": "",
+            "end": ""
+        },
+        "provider": ["0"],
+        "application_type": ["'all'"],
+        "sort_field": "user_c",
+        "is_live": "все",
+        "packet": ["0"],
+        "user_state": ["'all'"]
+    },
+    "apply_auto_limit": false
+}
