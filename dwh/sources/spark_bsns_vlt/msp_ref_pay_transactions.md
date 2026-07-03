@@ -29,6 +29,17 @@
 
 Важно: в этом скрипте нет фильтра `test_mode = false` и нет исключения технических сумм. Если витрина используется для аналитики выручки, эти условия нужно добавлять отдельно в запросах или явно согласовать бизнес-правило.
 
+## Правило идентификации пользователя по мерчанту
+
+Для связки платежной транзакции с пользователем нельзя универсально использовать одно и то же поле для всех мерчантов:
+
+- для `merchant_id = 563748` идентификатор пользователя нужно восстанавливать по телефону: брать `user_phone` из платежа, нормализовать номер и связывать с пользовательскими/подписочными таблицами по телефону;
+- для остальных мерчантов `param1` используется как `user_id`, если значение числовое и находится в `msp_ref_users.user_id` или подписочных витринах;
+- поле `param1` для `merchant_id = 563748` не нужно трактовать как надежный `user_id`;
+- телефон является персональными данными, поэтому его можно использовать только внутри SQL-связки и не выводить в аналитические отчеты, ноутбуки и выгрузки.
+
+Это правило особенно важно для анализа SuperApp/merchant-сценариев и платежных попыток: если для `merchant_id = 563748` искать пользователя только через `param1`, часть транзакций будет ошибочно не связана с пользователем.
+
 ## Основные сценарии использования
 
 - анализ количества успешных платежей и суммы оплат по дням;
@@ -68,7 +79,7 @@
 | `rolling_reserve_amount` | numeric | Сумма rolling reserve, если применяется платежным провайдером. | `0.00` | Финансовое техническое поле. Требует уточнения правил учета. |
 | `balance_before` | numeric | Баланс до операции. | `1000.00` | Техническое поле источника. Не использовать как выручку. |
 | `balance_after` | numeric | Баланс после операции. | `2250.00` | Техническое поле источника. Может применяться для сверки балансовых операций. |
-| `merchant_id` | numeric | Идентификатор мерчанта. | `563748` | Более стабильное поле для группировки мерчанта, чем текстовое название. В SQL-витрине входит в ключ агрегации. |
+| `merchant_id` | numeric | Идентификатор мерчанта. | `563748` | Более стабильное поле для группировки мерчанта, чем текстовое название. В SQL-витрине входит в ключ агрегации. Также определяет правило связки с пользователем: для `563748` использовать телефон, для остальных мерчантов - `param1` как `user_id`. |
 | `merchant_name` | text | Название мерчанта. | `Freedom Media` | В данных встречаются разные варианты регистра и написания. Для отчетов лучше нормализовать. |
 | `merchant_payment_system_name` | text | Название платежной системы или карточной схемы. | `VISA`, `MasterCard` | Полезно для анализа платежных методов. Может быть `null`. |
 | `entity_name` | character varying | Юридическое лицо или сущность мерчанта. | `ТОО «AsiaPay»` | Использовать для финансовой сегментации и сверок, если бизнес-логика требует разделения юрлиц. |
@@ -78,9 +89,9 @@
 | `approval_code` | character varying | Код авторизации платежа. | `123456` | Техническое поле для сверки с платежной системой. |
 | `receipt_number` | character varying | Номер фискального или платежного чека. | `0000012345` | Использовать для сверки чеков и платежных документов. |
 | `description` | text | Описание платежа из источника. | `Subscription payment` | Текст может быть неоднородным. Использовать осторожно, лучше как вспомогательное поле. |
-| `user_phone` | character varying | Телефон пользователя, пришедший в платежной записи. | `7700***0000` | Персональные данные. В аналитических отчетах не выводить. Для связки лучше нормализовать формат. |
+| `user_phone` | character varying | Телефон пользователя, пришедший в платежной записи. | `7700***0000` | Персональные данные. В аналитических отчетах не выводить. Для `merchant_id = 563748` это основной ключ восстановления пользователя: номер нужно нормализовать и связывать с `msp_ref_users.phone` / подписочными телефонами. |
 | `user_email` | text | Email пользователя из платежной записи. | `user***@example.com` | Персональные данные. Не выводить в отчетах и витринах без явного основания. |
-| `param1` | text | Параметр платежа. В SQL-витрине используется как возможный `user_id`: `p.param1 = u.user_id::varchar`. | `123456` | Не всегда является валидным `user_id`. На успешных не-тестовых платежах часть значений не числовая или не находится в `msp_ref_users`. |
+| `param1` | text | Параметр платежа. Для большинства мерчантов используется как возможный `user_id`: `p.param1 = u.user_id::varchar`. | `123456` | Не всегда является валидным `user_id`. Для `merchant_id = 563748` не использовать как основной ключ пользователя: там пользователя нужно искать по `user_phone`. Для остальных мерчантов перед join проверять `param1 ~ '^[0-9]+$'`. |
 | `param2` | text | Дополнительный параметр платежа. | `value` | Назначение не удалось однозначно определить по SQL-скрипту. Требует уточнения. |
 | `param3` | text | Дополнительный параметр платежа. | `value` | Назначение не удалось однозначно определить по SQL-скрипту. Требует уточнения. |
 | `t_w_srcid` | numeric | Технический идентификатор записи источника. | `123456` | Использовать для трассировки и сверки загрузки. |
@@ -98,8 +109,8 @@
 - `payment_date`, `complete_date`, `created_at` - даты платежа, завершения и создания попытки оплаты.
 - `payment_type`, `type` - тип платежной операции: оплата, возврат, рекуррентная операция, привязка или проверка карты.
 - `merchant_id`, `merchant_name`, `merchant_payment_system_name` - поля для анализа по мерчанту и платежной системе.
-- `param1` - возможный ключ связи с `msp_ref_users.user_id`, но не надежный для всех строк.
-- `user_phone` - возможный ключ связи по телефону; персональные данные, требует нормализации и осторожного использования.
+- `param1` - ключ связи с `msp_ref_users.user_id` для мерчантов, отличных от `563748`, если значение числовое.
+- `user_phone` - ключ связи по телефону для `merchant_id = 563748`; персональные данные, требует нормализации и не должен выводиться в отчеты.
 - `order_id`, `transaction_id`, `reference`, `approval_code`, `receipt_number` - технические ключи для сверки с платежной системой и источниками.
 - `t_w_loaddate`, `t_w_loadid`, `t_w_crdate` - технические поля загрузки и контроля свежести.
 
@@ -140,23 +151,23 @@ where status = 'success'
 
 ### Связь с `spark_bsns_vlt.msp_ref_users`
 
-В `pay_transaction.sql` используется два способа связки:
+В `pay_transaction.sql` используется два способа связки, но при прямом анализе платежей нужно учитывать `merchant_id`.
 
-1. По `param1`:
+1. Для мерчантов, отличных от `563748`, по `param1` как `user_id`:
 
 ```sql
 p.param1 = u.user_id::varchar
 ```
 
-2. По нормализованному телефону:
+2. Для `merchant_id = 563748`, по нормализованному телефону:
 
 ```sql
-regexp_replace(coalesce(p.user_phone, u.phone), '[^0-9]', '', 'g')
+regexp_replace(p.user_phone, '[^0-9]', '', 'g') = regexp_replace(u.phone, '[^0-9]', '', 'g')
 ```
 
 Затем телефон дополнительно нормализуется заменой начальной `8` на `7`.
 
-Ограничение: `param1` не всегда является числовым `user_id`, а телефон может отсутствовать или быть записан в разном формате. Для надежной связки лучше использовать подготовленную витрину из `pay_transaction.sql` или повторять ее логику нормализации.
+Ограничение: `param1` не всегда является числовым `user_id`, а телефон может отсутствовать или быть записан в разном формате. Для надежной связки важно сначала разделить платежи по `merchant_id`: `563748` связывать по телефону, остальные мерчанты - по `param1` как `user_id`.
 
 ### Связь с `spark_bsns_vlt.msp_ref_subscriptions`
 
@@ -177,7 +188,7 @@ regexp_replace(coalesce(p.user_phone, u.phone), '[^0-9]', '', 'g')
 - Малые суммы, особенно `5`, `10`, `100`, требуют отдельного бизнес-правила: они могут существенно влиять на количество платежей, но не обязательно отражают регулярную выручку подписок.
 - `merchant_name` и `bank_alias` текстовые и неоднородные; для стабильной группировки лучше использовать идентификаторы и справочники нормализации.
 - `user_phone`, `user_email`, `pan_mask` являются чувствительными данными. Их нельзя выводить в отчетах и широких аналитических выгрузках.
-- `param1` может быть полезен для связи с пользователем, но не является гарантированно заполненным и валидным `user_id`.
+- `param1` может быть полезен для связи с пользователем, но только для мерчантов, где он действительно хранит `user_id`; для `merchant_id = 563748` использовать телефон.
 - `created_at` отражает создание платежной записи/попытки, а не всегда факт завершения оплаты. Для финансовой аналитики чаще проверять `payment_date` и `complete_date`.
 - `order_id` и `transaction_id` могут повторяться, поэтому перед дедупликацией нужно определить бизнес-ключ платежа.
 
@@ -200,28 +211,51 @@ group by complete_date::date
 order by payment_day;
 ```
 
-### 2. Первая успешная оплата пользователя по `param1`
+### 2. Первая успешная оплата пользователя с учетом правила `merchant_id`
 
 ```sql
 with successful_payments as (
     select
-        param1::numeric as user_id,
+        case
+            when merchant_id = 563748 then null
+            when param1 ~ '^[0-9]+$' then param1::numeric
+        end as user_id,
+        case
+            when merchant_id = 563748
+            then regexp_replace(user_phone, '[^0-9]', '', 'g')
+        end as normalized_phone,
+        case
+            when merchant_id = 563748
+            then md5(regexp_replace(user_phone, '[^0-9]', '', 'g'))
+            when param1 ~ '^[0-9]+$'
+            then param1
+        end as analytics_user_key,
         id as payment_id,
+        merchant_id,
         complete_date,
         bill_amount,
         row_number() over (
-            partition by param1::numeric
+            partition by
+                case
+                    when merchant_id = 563748 then regexp_replace(user_phone, '[^0-9]', '', 'g')
+                    when param1 ~ '^[0-9]+$' then param1
+                end
             order by complete_date, id
         ) as rn
     from spark_bsns_vlt.msp_ref_pay_transactions
     where status = 'success'
       and test_mode = false
-      and param1 ~ '^[0-9]+$'
       and complete_date is not null
+      and (
+          (merchant_id = 563748 and user_phone is not null)
+          or (merchant_id <> 563748 and param1 ~ '^[0-9]+$')
+      )
 )
 select
     user_id,
+    analytics_user_key,
     payment_id,
+    merchant_id,
     complete_date as first_payment_date,
     bill_amount as first_payment_amount
 from successful_payments
@@ -253,18 +287,38 @@ limit 100;
 with payments as (
     select
         param1::integer as user_id,
+        null::text as normalized_phone,
         id as payment_id,
+        merchant_id,
         complete_date,
         bill_amount
     from spark_bsns_vlt.msp_ref_pay_transactions
     where status = 'success'
       and test_mode = false
-      and param1 ~ '^[0-9]+$'
       and complete_date is not null
+      and merchant_id <> 563748
+      and param1 ~ '^[0-9]+$'
+
+    union all
+
+    select
+        null::integer as user_id,
+        regexp_replace(user_phone, '[^0-9]', '', 'g') as normalized_phone,
+        id as payment_id,
+        merchant_id,
+        complete_date,
+        bill_amount
+    from spark_bsns_vlt.msp_ref_pay_transactions
+    where status = 'success'
+      and test_mode = false
+      and complete_date is not null
+      and merchant_id = 563748
+      and user_phone is not null
 ),
 subscriptions as (
     select
         user_id,
+        regexp_replace(phone, '[^0-9]', '', 'g') as normalized_phone,
         start_date,
         end_date,
         type,
@@ -287,7 +341,27 @@ from payments p
 left join subscriptions s
     on p.user_id = s.user_id
    and p.complete_date >= s.start_date - interval '1 day'
-   and p.complete_date <  s.start_date + interval '1 day';
+   and p.complete_date <  s.start_date + interval '1 day'
+where p.merchant_id <> 563748
+
+union all
+
+select
+    s.user_id,
+    p.payment_id,
+    p.complete_date,
+    p.bill_amount,
+    s.start_date,
+    s.end_date,
+    s.type as subscription_type,
+    s.packet,
+    s.provider
+from payments p
+left join subscriptions s
+    on p.normalized_phone = s.normalized_phone
+   and p.complete_date >= s.start_date - interval '1 day'
+   and p.complete_date <  s.start_date + interval '1 day'
+where p.merchant_id = 563748;
 ```
 
 ### 5. Выручка по мерчантам и платежным системам
@@ -314,4 +388,4 @@ order by gross_amount desc;
 
 ## Итоговое краткое описание
 
-`spark_bsns_vlt.msp_ref_pay_transactions` - основная таблица платежных операций Freedom Media. Она подходит для анализа успешных оплат, выручки, возвратов, первых и повторных платежей, а также для связи монетизации с подписками. Главные поля для аналитики: `id`, `status`, `test_mode`, `bill_amount`, `payment_date`, `complete_date`, `payment_type`, `merchant_id`, `param1`, `user_phone`. Для корректных отчетов обязательно фильтровать `status = 'success'`, исключать `test_mode = false`, отдельно обрабатывать возвраты, отрицательные и малые технические суммы. Связь с подписками возможна через восстановленный `user_id`, телефон и даты, но не является идеальной и требует проверок качества.
+`spark_bsns_vlt.msp_ref_pay_transactions` - основная таблица платежных операций Freedom Media. Она подходит для анализа успешных оплат, выручки, возвратов, первых и повторных платежей, а также для связи монетизации с подписками. Главные поля для аналитики: `id`, `status`, `test_mode`, `bill_amount`, `payment_date`, `complete_date`, `payment_type`, `merchant_id`, `param1`, `user_phone`. Для корректных отчетов обязательно фильтровать `status = 'success'`, исключать `test_mode = false`, отдельно обрабатывать возвраты, отрицательные и малые технические суммы. Связь с пользователем зависит от мерчанта: для `merchant_id = 563748` использовать нормализованный телефон, для остальных мерчантов - `param1` как `user_id`; связь с подписками возможна через восстановленный `user_id`, телефон и даты, но не является идеальной и требует проверок качества.
