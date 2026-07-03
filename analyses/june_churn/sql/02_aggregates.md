@@ -62,12 +62,25 @@
 
 ## Платежный proxy
 
-Проверка через `spark_bsns_vlt.msp_ref_pay_transactions`, join по `param1::numeric = user_id`, окно `end_date - 3` до `end_date + 7`.
+Проверка через `spark_bsns_vlt.msp_ref_pay_transactions`, окно `end_date - 3` до `end_date + 7`.
 
-| Месяц | Churned users | Any attempt | Failed/pending only | Success attempt | No attempt by param1 |
+Правило связки:
+
+- для `merchant_id = 563748` сначала используется нормализованный телефон `user_phone` из транзакции и `phone` из подписки;
+- если в транзакции `merchant_id = 563748` телефона нет, используется fallback `param1::numeric = user_id`;
+- для остальных мерчантов используется `param1::numeric = user_id`.
+
+| Месяц | Churned users | Any attempt | Failed/pending only | Success attempt | No attempt |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| 2026-05 | 16 761 | 2 123 | 2 020 | 103 | 14 638 |
-| 2026-06 | 33 274 | 12 762 | 12 407 | 355 | 20 512 |
+| 2026-05 | 16 761 | 2 208 | 2 015 | 193 | 14 553 |
+| 2026-06 | 33 274 | 12 884 | 12 397 | 487 | 20 390 |
+
+Качество match-rule:
+
+| Месяц | SuperApp phone match | SuperApp param1 fallback | Other merchants param1 |
+| --- | ---: | ---: | ---: |
+| 2026-05 | 90 | 0 | 2 123 |
+| 2026-06 | 133 | 0 | 12 762 |
 
 По июню статусы платежных попыток среди churn-пользователей:
 
@@ -84,13 +97,13 @@
 
 | Segment | Churned | Failed/pending only | Success attempt | No attempt |
 | --- | ---: | ---: | ---: | ---: |
-| SUPER trial, provider 8, packet 54 | 10 969 | 2 078 | 58 | 8 833 |
-| MEDIA trial, provider 1, packet 4 | 10 399 | 7 407 | 193 | 2 799 |
+| SUPER trial, provider 8, packet 54 | 10 969 | 2 074 | 152 | 8 743 |
+| MEDIA trial, provider 1, packet 4 | 10 399 | 7 407 | 196 | 2 796 |
 | SUPER promo, provider 8, packet 54 | 4 224 | 261 | 0 | 3 963 |
-| MEDIA promo, provider 1, packet 4 | 2 213 | 887 | 32 | 1 294 |
-| MEDIA trial, provider 1, packet 72 | 1 432 | 1 041 | 35 | 356 |
+| MEDIA promo, provider 1, packet 4 | 2 213 | 887 | 34 | 1 292 |
+| MEDIA trial, provider 1, packet 72 | 1 432 | 1 041 | 36 | 355 |
 
-Вывод: для MEDIA trial есть сильный сигнал платежных ошибок/ожидающих списаний; для SUPER trial/promo чаще не найдено платежной попытки по `param1`.
+Вывод: для MEDIA trial есть сильный сигнал платежных ошибок/ожидающих списаний. Для SUPER trial/promo после корректной проверки по телефону все равно чаще не найдено платежной попытки в окне; phone-match добавляет часть успешных SuperApp-операций, но не меняет общий вывод.
 
 ## Активность перед окончанием подписки
 

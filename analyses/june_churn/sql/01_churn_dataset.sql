@@ -69,23 +69,67 @@ labeled as (
     from month_last ml
     where rn_month = 1
 ),
+attempt_matches as (
+    select
+        l.end_month,
+        l.user_id,
+        p.id,
+        p.status,
+        'merchant_563748_phone' as match_rule
+    from labeled l
+    join spark_bsns_vlt.msp_ref_pay_transactions p
+        on p.merchant_id = 563748
+       and p.user_phone is not null
+       and btrim(p.user_phone) <> ''
+       and regexp_replace(p.user_phone, '[^0-9]', '', 'g') = regexp_replace(l.phone, '[^0-9]', '', 'g')
+       and p.created_at::date between l.end_date - 3 and l.end_date + 7
+
+    union all
+
+    select
+        l.end_month,
+        l.user_id,
+        p.id,
+        p.status,
+        'merchant_563748_param1_fallback' as match_rule
+    from labeled l
+    join spark_bsns_vlt.msp_ref_pay_transactions p
+        on p.merchant_id = 563748
+       and (p.user_phone is null or btrim(p.user_phone) = '')
+       and p.param1 ~ '^[0-9]+$'
+       and p.param1::numeric = l.user_id
+       and p.created_at::date between l.end_date - 3 and l.end_date + 7
+
+    union all
+
+    select
+        l.end_month,
+        l.user_id,
+        p.id,
+        p.status,
+        'other_merchant_param1' as match_rule
+    from labeled l
+    join spark_bsns_vlt.msp_ref_pay_transactions p
+        on p.merchant_id <> 563748
+       and p.param1 ~ '^[0-9]+$'
+       and p.param1::numeric = l.user_id
+       and p.created_at::date between l.end_date - 3 and l.end_date + 7
+),
 pay_attempts as (
     select
         l.end_month,
         l.user_id,
-        max(case when p.id is not null then 1 else 0 end) as any_payment_attempt_near_end,
-        max(case when p.status = 'success' and coalesce(p.test_mode, false) = false then 1 else 0 end) as success_payment_attempt_near_end,
-        max(case when p.status in ('error', 'incomplete', 'waiting', 'new', 'process')
-                  and coalesce(p.test_mode, false) = false then 1 else 0 end) as failed_or_pending_payment_attempt_near_end,
-        count(*) filter (
-            where p.status in ('error', 'incomplete', 'waiting', 'new', 'process')
-              and coalesce(p.test_mode, false) = false
-        ) as failed_or_pending_payment_attempt_rows
+        max(case when am.id is not null then 1 else 0 end) as any_payment_attempt_near_end,
+        max(case when am.status = 'success' then 1 else 0 end) as success_payment_attempt_near_end,
+        max(case when am.status in ('error', 'incomplete', 'waiting', 'new', 'process') then 1 else 0 end) as failed_or_pending_payment_attempt_near_end,
+        count(distinct case when am.status in ('error', 'incomplete', 'waiting', 'new', 'process') then am.id end) as failed_or_pending_payment_attempt_rows,
+        max(case when am.match_rule = 'merchant_563748_phone' then 1 else 0 end) as matched_by_superapp_phone,
+        max(case when am.match_rule = 'merchant_563748_param1_fallback' then 1 else 0 end) as matched_by_superapp_param1_fallback,
+        max(case when am.match_rule = 'other_merchant_param1' then 1 else 0 end) as matched_by_other_merchant_param1
     from labeled l
-    left join spark_bsns_vlt.msp_ref_pay_transactions p
-        on p.param1 ~ '^[0-9]+$'
-       and p.param1::numeric = l.user_id
-       and p.created_at::date between l.end_date - 3 and l.end_date + 7
+    left join attempt_matches am
+        on l.end_month = am.end_month
+       and l.user_id = am.user_id
     group by l.end_month, l.user_id
 ),
 vod_activity as (
@@ -181,6 +225,9 @@ select
         else 'mixed_payment_attempts'
     end as payment_proxy,
     coalesce(pa.failed_or_pending_payment_attempt_rows, 0) as failed_or_pending_payment_attempt_rows,
+    coalesce(pa.matched_by_superapp_phone, 0) as matched_by_superapp_phone,
+    coalesce(pa.matched_by_superapp_param1_fallback, 0) as matched_by_superapp_param1_fallback,
+    coalesce(pa.matched_by_other_merchant_param1, 0) as matched_by_other_merchant_param1,
     a.last_view_dt_before_end,
     l.end_date - a.last_view_dt_before_end as days_from_last_view_to_end,
     coalesce(a.active_days_30d, 0) as active_days_30d,
