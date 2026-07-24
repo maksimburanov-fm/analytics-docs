@@ -25,13 +25,26 @@ analytics-docs/
 ├── README.md
 ├── .gitignore
 │
+├── .codex/
+│   ├── config.toml
+│   └── scripts/
+│
+├── AGENTS.md
+├── agents/
+├── analyses/
+│
 ├── docs/
 │   ├── 01_overview.md
 │   ├── 02_event_model.md
 │   ├── 03_metrics.md
 │   ├── 04_dashboards.md
 │   ├── 05_gtm.md
-│   └── 06_data_sources.md
+│   ├── 06_data_sources.md
+│   └── 07_mcp_connections.md
+│
+├── dwh/
+│   ├── datamarts/
+│   └── sources/
 │
 ├── gtm/
 │   ├── containers/
@@ -52,6 +65,11 @@ analytics-docs/
 
 ## Разделы
 
+### `.codex/`
+
+Проектная конфигурация Codex и безопасные launcher-скрипты для MCP. Секреты в
+этой папке не хранятся: подключения читают их из пользовательской среды Windows.
+
 ### `docs/`
 
 Текстовая документация по аналитике:
@@ -61,7 +79,8 @@ analytics-docs/
 * описание метрик;
 * описание Power BI-дашбордов;
 * описание GTM;
-* описание источников данных.
+* описание источников данных;
+* настройка и диагностика MCP-подключений.
 
 ### `gtm/`
 
