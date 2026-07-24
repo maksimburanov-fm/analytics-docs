@@ -108,11 +108,13 @@ python .\events\scripts\generate_gtm_documentation_csv.py `
 - `msp_ref_catalog_content`.
 
 В [`dwh/datamarts/`](dwh/datamarts/) находятся SQL-определения продуктовых и
-маркетинговых витрин. Для трёх витрин `spark_dm` есть отдельная документация:
+маркетинговых витрин. Для витрин `spark_dm` есть отдельная документация:
 
 - [`spark_dm.subscriptions_with_revenue`](dwh/datamarts/spark_dm/subscriptions_with_revenue.md);
 - [`spark_dm.full_catalog`](dwh/datamarts/spark_dm/full_catalog.md);
-- [`spark_dm.user_watch_sub_promo`](dwh/datamarts/spark_dm/user_watch_sub_promo.md).
+- [`spark_dm.user_watch_sub_promo`](dwh/datamarts/spark_dm/user_watch_sub_promo.md);
+- [`spark_dm.media_cover_funnel_user_daily`](dwh/datamarts/spark_dm/media_cover_funnel_user_daily.md)
+  — дневная воронка показа карточки, клика и VOD-просмотра.
 
 Документация таблицы должна фиксировать гранулярность, источники, ключевые поля,
 логику расчёта, проверки качества и ограничения использования.
