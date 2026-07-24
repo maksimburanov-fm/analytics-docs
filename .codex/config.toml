@@ -1,0 +1,33 @@
+[mcp_servers.freedom_confluence]
+command = "powershell.exe"
+args = [
+  "-NoProfile",
+  "-NonInteractive",
+  "-ExecutionPolicy",
+  "Bypass",
+  "-File",
+  'C:\Users\Администратор\Documents\Codex\2026-07-23\vj\outputs\freedom-confluence-mcp\launch.ps1'
+]
+cwd = 'C:\Users\Администратор\Documents\Codex\2026-07-23\vj\outputs\freedom-confluence-mcp'
+startup_timeout_sec = 30
+
+[mcp_servers.freedom_confluence.env]
+CONFLUENCE_URL = "https://confluence.ffin.kz"
+CONFLUENCE_SPACE_KEY = "DWHDocs"
+CONFLUENCE_ROOT_PAGE_ID = "165151293"
+CONFLUENCE_VERIFY_TLS = "true"
+
+[mcp_servers.fmedia_gp]
+command = "powershell.exe"
+args = [
+  "-NoProfile",
+  "-NonInteractive",
+  "-ExecutionPolicy",
+  "Bypass",
+  "-File",
+  'C:\git-home\analytics-docs\.codex\scripts\launch-fmedia-gp.ps1'
+]
+cwd = 'C:\git-home\analytics-docs'
+env_vars = []
+startup_timeout_sec = 45
+tool_timeout_sec = 180
