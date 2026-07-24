@@ -1,5 +1,9 @@
 # Analytics Documentation
 
+> Jira FMAP: правила для новых Codex-чатов находятся в
+> [`docs/08_jira_api.md`](docs/08_jira_api.md). Быстрая проверка подключения:
+> `.\.codex\scripts\check-jira.cmd`.
+
 Репозиторий хранит документацию и воспроизводимые аналитические материалы
 Freedom Media:
 
