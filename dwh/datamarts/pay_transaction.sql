@@ -1,53 +1,108 @@
-with users_base as 
-(
-select user_id, max(phone) as phone
-FROM spark_bsns_vlt.msp_ref_users
-where phone is not null
-group by user_id
+CREATE OR REPLACE VIEW VW_PAY_TRANSACTIONS AS
+WITH users_base AS (
+    SELECT
+        user_id,
+        MAX(regexp_replace(phone, '[^0-9]', '', 'g')) AS phone
+    FROM spark_bsns_vlt.msp_ref_users
+    WHERE phone IS NOT NULL
+      AND btrim(phone) <> ''
+    GROUP BY user_id
+),
+users_by_phone AS (
+    SELECT
+        phone,
+        user_id
+    FROM (
+        SELECT
+            regexp_replace(phone, '[^0-9]', '', 'g') AS phone,
+            user_id,
+            ROW_NUMBER() OVER (
+                PARTITION BY regexp_replace(phone, '[^0-9]', '', 'g')
+                ORDER BY user_id DESC
+            ) AS rn
+        FROM spark_bsns_vlt.msp_ref_users
+        WHERE phone IS NOT NULL
+          AND btrim(phone) <> ''
+    ) src
+    WHERE rn = 1
+),
+fill_phones AS (
+    SELECT
+        regexp_replace(
+            COALESCE(NULLIF(btrim(p.user_phone), ''), u.phone),
+            '[^0-9]',
+            '',
+            'g'
+        ) AS phone,
+        p.order_id,
+        p.status,
+        p.merchant_id,
+        p.pan_mask,
+        p.bill_amount,
+        p.created_at::date AS cr_date,
+        p.param1,
+        p.bank_alias
+    FROM spark_bsns_vlt.msp_ref_pay_transactions p
+    LEFT JOIN users_base u
+        ON p.param1 = u.user_id::varchar
+    WHERE p.status = 'success'
+),
+pan_phones AS (
+    SELECT
+        pan_mask,
+        phone
+    FROM (
+        SELECT
+            pan_mask,
+            phone,
+            ROW_NUMBER() OVER (
+                PARTITION BY pan_mask
+                ORDER BY
+                    CASE
+                        WHEN phone IS NOT NULL AND btrim(phone) <> '' THEN 0
+                        ELSE 1
+                    END,
+                    cr_date DESC
+            ) AS rn
+        FROM fill_phones
+        WHERE pan_mask IS NOT NULL
+          AND btrim(pan_mask) <> ''
+    ) src
+    WHERE rn = 1
+),
+tr_w_phones AS (
+    SELECT
+        regexp_replace(
+            COALESCE(NULLIF(btrim(f.phone), ''), p.phone),
+            '^8',
+            '7'
+        ) AS phone,
+        f.order_id,
+        f.merchant_id,
+        SUM(f.bill_amount) AS price,
+        MIN(f.cr_date) AS cr_date,
+        MAX(f.bank_alias) AS bank_alias
+    FROM fill_phones f
+    LEFT JOIN pan_phones p
+        ON f.pan_mask = p.pan_mask
+    WHERE COALESCE(NULLIF(btrim(f.phone), ''), p.phone) IS NOT NULL
+    GROUP BY
+        regexp_replace(
+            COALESCE(NULLIF(btrim(f.phone), ''), p.phone),
+            '^8',
+            '7'
+        ),
+        f.order_id,
+        f.merchant_id
 )
-, fill_phones as 
-(
-select 
-	regexp_replace(coalesce(p.user_phone,u.phone),'[^0-9]','','g') as phone
-	, p.order_id 
-	, p.status 
-	, p.merchant_id 
-	, p.pan_mask 
-	, p.bill_amount
-	, p.created_at::date as cr_date
-	, p.param1 
-	, p.bank_alias 
-FROM spark_bsns_vlt.msp_ref_pay_transactions p
-	left join users_base u
-		on p.param1 = u.user_id::varchar
-where p.status in ('success')
-) 
-, pan_phones as
-(
-select 
-	distinct
-		first_value(phone) over (partition by pan_mask order by nullif(btrim(phone), ''), cr_date desc) as phone 
-		, pan_mask 
-from fill_phones
-where pan_mask is not null
-	and pan_mask != ''
-)
-, tr_w_phones as
-(
-select 
-	regexp_replace(coalesce(f.phone , p.phone),'^8','7') as phone
-	, f.order_id 
-	, f.merchant_id 
-	, sum(f.bill_amount) as price
-	, min(f.cr_date) as cr_date
-	, max(f.bank_alias) as bank_alias
-from fill_phones f
-	left join  pan_phones p 
-		on f.pan_mask = p.pan_mask
-where coalesce(f.phone , p.phone) is not null
-group by coalesce(f.phone , p.phone), f.order_id, f.merchant_id
-)
-select tp.*, up.user_id
-from tr_w_phones tp
-	left join spark_bsns_vlt.msp_ref_users up
-		on tp.phone = up.phone
+SELECT
+    tp.phone,
+    tp.order_id,
+    tp.merchant_id,
+    tp.price,
+    tp.cr_date,
+    tp.bank_alias,
+    up.user_id
+FROM tr_w_phones tp
+LEFT JOIN users_by_phone up
+    ON tp.phone = up.phone;
