@@ -81,7 +81,12 @@ tr_w_phones AS (
         f.merchant_id,
         SUM(f.bill_amount) AS price,
         MIN(f.cr_date) AS cr_date,
-        MAX(f.bank_alias) AS bank_alias
+        MAX(
+            CASE
+                WHEN f.merchant_id = 563748 THEN 'superapp'
+                ELSE f.bank_alias
+            END
+        ) AS bank_alias
     FROM fill_phones f
     LEFT JOIN pan_phones p
         ON f.pan_mask = p.pan_mask
